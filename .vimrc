@@ -6,7 +6,7 @@ set mouse=a
 "==================
 syntax on
 set background=dark
-colorscheme solarized
+colorscheme distinguished
 let g:solarized_termcolors=256
 
 set nowrap
@@ -15,15 +15,14 @@ let g:used_javascript_libs = 'underscore,backbone'
 set autoindent
 set runtimepath+=/.vim/bundle/jshint2.vim/
 "fast saving
-nmap<leader>w :w!<cr>
 nmap<leader>Q :so $MYVIMRC<cr>
 
 "make search act like search in modern browsers
 set incsearch
-"show matching for ({[ 
+"show matching for ({[ "
 set showmatch
 
-"noswap files
+	"noswap files
 set noswapfile
 
 "map space to / search
@@ -33,8 +32,8 @@ map <c-space> ?
 
 "return to last edit position when opening files
 autocmd BufReadPost * 
-	\ if line("'\'") > 0 && line("'\'") >  line("$") |
-	\    exe "normal! g`\"" |
+\ if line("'\'") > 0 && line("'\'") >  line("$") |
+\    exe "normal! g`\"" |
 \ endif
 
 "open buffers on close
@@ -88,6 +87,7 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
+nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
@@ -116,21 +116,127 @@ function! DoPrettyXML()
   " restore the filetype
   exe "set ft=" . l:origft
 endfunction
+	command! PrettyXML call DoPrettyXML()
 command! PrettyXML call DoPrettyXML()
 
 
 ".vimrc
-  map <c-f> :call JsBeautify()<cr>
-  " or
-  autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-  " for html
-  autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-  " for css or scss
-	  autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-function! CompileEH()
-	:command! !grunt buildAndDeploy-debug
+map <F3> :Shell gruntEH<cr>
+
+"JSHINT
+set runtimepath+=~/.vim/bundle/jshint2.vim/
+map <F6> :JSHint<cr>
+
+
+
+if exists("b:did_indent")
+finish
+endif
+let b:did_indent = 1
+
+setlocal indentexpr=GetCSSIndent()
+setlocal indentkeys=0{,0},!^F,o,O
+setlocal nosmartindent
+
+if exists("*GetCSSIndent")
+	finish
+endif
+
+function s:prevnonblanknoncomment(lnum)
+	let lnum = a:lnum
+	while lnum > 1
+	let lnum = prevnonblank(lnum)
+	let line = getline(lnum)
+	if line =~ '\*/'
+	while lnum > 1 && line !~ '/\*'
+	let lnum -= 1
+	endwhile
+	if line =~ '^\s*/\*'
+	let lnum -= 1
+	else
+	break
+	endif
+	else
+	break
+	endif
+	endwhile
+	return lnum
 endfunction
 
-map <F3> :call CompileEH()<cr>
+function s:count_braces(lnum, count_open)
+let n_open = 0
+let n_close = 0
+let line = getline(a:lnum)
+let pattern = '[{}]'
+let i = match(line, pattern)
+while i != -1
+if synIDattr(synID(a:lnum, i + 1, 0), 'name') !~ 'css\%(Comment\|StringQ\{1,2}\)'
+if line[i] == '{'
+	let n_open += 1
+elseif line[i] == '}'
+if n_open > 0
+let n_open -= 1
+else
+let n_close += 1
+endif
+endif
+endif
+let i = match(line, pattern, i + 1)
+endwhile
+return a:count_open ? n_open : n_close
+endfunction
 
+function GetCSSIndent()
+let line = getline(v:lnum)
+if line =~ '^\s*\*'
+return cindent(v:lnum)
+endif
+
+let pnum = s:prevnonblanknoncomment(v:lnum - 1)
+if pnum == 0
+return 0
+endif
+
+return indent(pnum) + s:count_braces(pnum, 1) * &sw
+\ - s:count_braces(v:lnum, 0) * &sw
+endfunction
+
+
+function! s:ExecuteInShell(command, bang)
+	let _ = a:bang != '' ? s:_ : a:command == '' ? '' : join(map(split(a:command), 'expand(v:val)'))
+	if (_ != '')
+		let s:_ = _
+		let bufnr = bufnr('%')
+		let winnr = bufwinnr('^expand' . _ . '$')
+		silent! execute  winnr < 0 ? 'belowright new ' . fnameescape(_) : winnr . 'wincmd w'
+		setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile wrap number
+		silent! : %d
+		let message = 'Execute ' . _ . '...'
+		call append(0, message)
+		echo message
+		silent! 2d | resize 1 | redraw
+		silent! execute 'silent! %!'. _
+		silent! execute 'resize ' . line('$')
+		silent! execute 'syntax on'
+		silent! execute 'autocmd BufUnload <buffer> execute bufwinnr(' . bufnr . ') . ''wincmd w'''
+		silent! execute 'autocmd BufEnter <buffer> execute ''resize '' .  line(''$'')'
+		silent! execute 'nnoremap <silent> <buffer> <CR> :call <SID>ExecuteInShell(''' . _ . ''', '''')<CR>'
+		silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteecuteInShell(''' . _ . ''', '''')<CR>'
+		silent! execute 'nnoremap <silhouetteent> <buffer> <LocalLeader>g :execute bufwinnr(' . bufnr . ') . ''wincmd w''<CR>'
+		nnoremap <silent> <buffer> <C-W>_ :execute 'resize ' . line('$')<CR>
+		silent! syntax on
+	endif
+endfunction
+
+command! -complete=shellcmd -nargs=* -bang Shell call s:ExecuteInShell(<q-args>, '<bang>')
+cabbrev shell Shell
+
+map <c-l> shell gruntEH<cr>
