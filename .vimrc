@@ -1,5 +1,39 @@
-call pathogen#infect()
-call pathogen#helptags()
+call plug#begin('~/.nvim/plugged')
+" Make sure you use single quotes
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/vim-easy-align'
+
+" Group dependencies, vim-snippets depends on ultisnips
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"ack
+Plug 'mileszs/ack.vim'
+
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'bling/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'honza/vim-snippets'
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdcommenter'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'tpope/vim-surround'
+Plug 'Shutnik/jshint2.vim'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-scriptease'
+Plug 'majutsushi/tagbar'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-session'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'dbakker/vim-lint'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+call plug#end()
+
 set autochdir
 set mouse=a
 
@@ -239,4 +273,3 @@ endfunction
 command! -complete=shellcmd -nargs=* -bang Shell call s:ExecuteInShell(<q-args>, '<bang>')
 cabbrev shell Shell
 
-map <c-l> shell gruntEH<cr>
