@@ -32,8 +32,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'dbakker/vim-lint'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'ervandew/supertab'
+Plug 'pangloss/vim-javascript'
+Plug 'ryanss/vi$m-hackernews'
+Plug 'groenewege/vim-less'
 call plug#end()
-
 set autochdir
 set mouse=a
 
