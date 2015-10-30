@@ -5,19 +5,18 @@ Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' 
-Plug 'honza/vim-snippets'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 "ack
 Plug 'mhinz/vim-grepper'
+Plug 'vim-scripts/moria'
 Plug 'Shougo/deoplete.nvim'
 Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
-Plug 'honza/vim-snippets'
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'
 Plug 'maksimr/vim-jsbeautify'
@@ -30,22 +29,43 @@ Plug 'majutsushi/tagbar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'dbakker/vim-lint'
 Plug 'xolox/vim-misc'
+Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
 Plug 'groenewege/vim-less'
 Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe'
 Plug 'marijnh/tern_for_vim'
 Plug 'tomasr/molokai'
+Plug 'crusoexia/vim-monokai'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'altercation/vim-colors-solarized'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'JulesWang/css.vim'
+Plug 'ricardogcolombo/vim-snippets'
 call plug#end()
 
-colorscheme distinguished
-syntax on
+let g:vimrcPath = $MYVIMRC
+let g:vimPath = system('realpath '.g:vimrcPath)
+let g:vimDir = fnamemodify(g:vimPath, ':h')
+let g:plugDir = g:vimDir.'/plugged'
+
+colorscheme molokai
+set background=dark
+if &t_Co > 2 || has("gui_running")
+    " switch syntax highlighting on, when the terminal has colors
+    syntax on
+endif
+
 set nu
 set autochdir
+
 set mouse=a
 set history=200
 set clipboard=unnamed "clipboard issue with tmux and iterm
-set background=dark
+"set background =light
 set nowrap
 set autoindent
 set runtimepath+=/.nvim/bundle/jshint2.vim/
@@ -60,7 +80,8 @@ set autowrite     " Automatically :write before running commands
 set autoread      " Reload files changted outside vim
 set matchpairs+=<:>  "HTML Editing
 set viminfo^=% "open buffers on close
-
+set t_Co=256
+set cursorline
 "==================
 "MAP KEYS
 "==================
@@ -77,8 +98,9 @@ map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 map <silent><C-v> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 " GIT 
-map <Leader>gc :Gxommit -m ""<LEFT>
+map <Leader>gc :GCommit -m ""<LEFT>
 map <Leader>gs :GStatus
+
 nmap t <Plug>(easymotion-t2)
 nmap <Leader>s O<Esc>
 nmap <CR> o<Esc>
@@ -89,6 +111,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 "Copy paste to/from clipboard
 vnoremap <C-c> "*y
+"save 
+nnoremap <Leader>w :w<CR>
 
 nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
 " EASY MOTION MAP
@@ -105,6 +129,8 @@ map <Leader>h <Plug>(easymotion-linebackward)
 ".vimrc
 map <c-f> :call JsBeautify()<cr>
 
+"JSDOC
+nmap <silent> <C-l> <Plug>(jsdoc)
 
 "==================
 "AUTOCOMMAND
@@ -120,8 +146,8 @@ autocmd BufReadPost *
 			\ if line("'\'") > 0 && line("'\'") >  line("$") |
 			\    exe "normal! g`\"" |
 			\ endif
-
-let g:solarized_termcolors=256
+let g:molokai_original = 1
+let g:rehash256 = 1
 let mapleader = ',' 
 let g:used_javascript_libs = 'underscore,backbone'
 "==================
@@ -137,12 +163,30 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 "==================
 "SNIPPETS
 "==================
-let g:UltiSnipsExpandTrigger='<c-g>'
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" YouCompleteMe setup
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_filetype_blacklist={'unite': 1}
+let g:ycm_min_num_of_chars_for_completion = 1
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>""
+"SNIPMATE
+let g:snips_trigger_key = '<C-\>'
+let g:UltiSnipsSnippetsDir=plugDir.'/vim-snippets/UltiSnips'
+"let g:UltiSnipsExpandTrigger='<c-g>'
+"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical"
 "==================
 "EASY MOTION
 "==================
@@ -154,6 +198,10 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
+
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+
 
 
 function! DoPrettyXML()
@@ -290,3 +338,26 @@ cabbrev shell Shel
 
 
 
+
+function! g:UltiSnips_Complete()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips#JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-e>"
+" this mapping Enter key to <C-y> to chose the current highlight item 
+" and close the selection list, same as other IDEs.
+" CONFLICT with some plugins like tpope/Endwise
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
