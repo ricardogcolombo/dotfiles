@@ -9,10 +9,15 @@ Plug 'SirVer/ultisnips'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 "ack
+Plug 'fatih/vim-go'
 Plug 'mhinz/vim-grepper'
 Plug 'vim-scripts/moria'
 Plug 'Shougo/deoplete.nvim'
 Plug 'mileszs/ack.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mattn/emmet-vim'
+Plug 't9md/vim-choosewin'
+Plug 'dyng/ctrlsf.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
@@ -44,6 +49,9 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'altercation/vim-colors-solarized'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'JulesWang/css.vim'
+Plug 'kshenoy/vim-signature'
+"Plug 'powerline/powerline'
+Plug 'gregsexton/gitv'
 Plug 'ricardogcolombo/vim-snippets'
 call plug#end()
 
@@ -55,8 +63,8 @@ let g:plugDir = g:vimDir.'/plugged'
 colorscheme molokai
 set background=dark
 if &t_Co > 2 || has("gui_running")
-    " switch syntax highlighting on, when the terminal has colors
-    syntax on
+	" switch syntax highlighting on, when the terminal has colors
+	syntax on
 endif
 
 set nu
@@ -86,7 +94,7 @@ set cursorline
 "MAP KEYS
 "==================
 nnoremap <F2> :NERDTree<CR>
-map <F3> :Shell gruntEH<cr>
+map <F3> :call JsBeautify()<cr>
 nnoremap <F5> :GundoToggle<CR>
 map <F6> :JSHint<cr>
 "fast saving
@@ -127,15 +135,27 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 ".vimrc
-map <c-f> :call JsBeautify()<cr>
 
 "JSDOC
 nmap <silent> <C-l> <Plug>(jsdoc)
 
+
+"CTRLSF
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
+"Choose Win
+nmap  -  <Plug>(choosewin)
 "==================
 "AUTOCOMMAND
 "==================
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+"autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for html
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
@@ -173,6 +193,10 @@ let g:ycm_filetype_blacklist={'unite': 1}
 let g:ycm_min_num_of_chars_for_completion = 1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+"==================
+"AG
+"==================
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -340,18 +364,18 @@ cabbrev shell Shel
 
 
 function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
+	call UltiSnips#ExpandSnippet()
+	if g:ulti_expand_res == 0
+		if pumvisible()
+			return "\<C-n>"
+		else
+			call UltiSnips#JumpForwards()
+			if g:ulti_jump_forwards_res == 0
+				return "\<TAB>"
+			endif
+		endif
+	endif
+	return ""
 endfunction
 
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
