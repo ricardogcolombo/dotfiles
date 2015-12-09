@@ -26,8 +26,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'tpope/vim-surround'
-Plug 'walm/jshint.vim'
-Plug 'Shutnik/jshint2.vim'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-scriptease'
 Plug 'majutsushi/tagbar'
@@ -76,7 +74,6 @@ set clipboard=unnamed "clipboard issue with tmux and iterm
 "set background =light
 set nowrap
 set autoindent
-set runtimepath+=/.nvim/bundle/jshint2.vim/
 set incsearch  "make search act like search in modern browsers
 set showmatch "show matching for ({[ "
 set noswapfile   "noswap files
@@ -96,7 +93,6 @@ set cursorline
 nnoremap <F2> :NERDTree<CR>
 map <F3> :call JsBeautify()<cr>
 nnoremap <F5> :GundoToggle<CR>
-map <F6> :JSHint<cr>
 "fast saving
 nmap<leader>Q :so $MYVIMRC<cr>
 "map space to / search
@@ -226,6 +222,17 @@ let g:multi_cursor_quit_key='<Esc>'
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 
+"======================
+"Syntastic
+""=====================
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
 function! DoPrettyXML()
