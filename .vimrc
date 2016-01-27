@@ -44,11 +44,11 @@ Plug 'marijnh/tern_for_vim'
 Plug 'tomasr/molokai'
 Plug 'crusoexia/vim-monokai'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'altercation/vim-colors-solarized'
 Plug 'heavenshell/vim-jsdoc'
+Plug 'matze/vim-move'
 Plug 'JulesWang/css.vim'
 Plug 'kshenoy/vim-signature'
-"Plug 'powerline/powerline'
+Plug 'powerline/powerline'
 Plug 'gregsexton/gitv'
 Plug 'ricardogcolombo/vim-snippets'
 call plug#end()
@@ -80,6 +80,8 @@ set noswapfile   "noswap files
 set tabstop=4   " size of a hard tabstop
 set shiftwidth=4    " size of an "indent"
 set softtabstop=4
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set autoread      " Reload files changted outside vim
@@ -90,8 +92,8 @@ set cursorline
 "==================
 "MAP KEYS
 "==================
-nnoremap <F2> :NERDTree<CR>
-map <F3> :call JsBeautify()<cr>
+nnoremap <S-t> :NERDTree<CR>
+map <S-f> :call JsBeautify()<cr>
 nnoremap <F5> :GundoToggle<CR>
 "fast saving
 nmap<leader>Q :so $MYVIMRC<cr>
@@ -104,15 +106,18 @@ map <silent><C-v> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 " GIT 
 map <Leader>gc :GCommit -m ""<LEFT>
 map <Leader>gs :GStatus
+map <Leader>S :SyntasticCheck<CR>
 
 nmap t <Plug>(easymotion-t2)
 nmap <Leader>s O<Esc>
 nmap <CR> o<Esc>
 
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+noremap <A-j> <C-W>j<CR>
+noremap <A-k> <C-W>k<CR>
+noremap <A-h> <C-W>h<CR>
+noremap <A-l> <C-W>l<CR>
+let g:move_key_modifier = 'C'
+
 "Copy paste to/from clipboard
 vnoremap <C-c> "*y
 "save 
@@ -148,6 +153,10 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 "Choose Win
 nmap  -  <Plug>(choosewin)
+
+
+"NERD COMMENTER SPACE AFTER COMMENT 
+let NERDSpaceDelims=1
 "==================
 "AUTOCOMMAND
 "==================
@@ -229,8 +238,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list =1 
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
