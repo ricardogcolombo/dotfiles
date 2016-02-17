@@ -1,4 +1,4 @@
-set nocompatible
+" set nocompatible
 call plug#begin('~/.config/nvim/plugged')
 " Make sure you use single quotes
 Plug 'junegunn/seoul256.vim'
@@ -20,7 +20,6 @@ Plug 't9md/vim-choosewin'
 Plug 'dyng/ctrlsf.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'
@@ -33,23 +32,26 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'dbakker/vim-lint'
 Plug 'xolox/vim-misc'
 Plug 'othree/yajs.vim'
+Plug 'Chiel92/vim-autoformat'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
-Plug 'groenewege/vim-less'
+Plug 'genoma/vim-less'
 Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe'
 Plug 'marijnh/tern_for_vim'
 Plug 'tomasr/molokai'
 Plug 'crusoexia/vim-monokai'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'heavenshell/vim-jsdoc'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'matze/vim-move'
 Plug 'JulesWang/css.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'powerline/powerline'
 Plug 'gregsexton/gitv'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'ricardogcolombo/vim-snippets'
 call plug#end()
 
@@ -65,6 +67,7 @@ if &t_Co > 2 || has("gui_running")
 	syntax on
 endif
 
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 set nu
 set autochdir
 
@@ -81,6 +84,7 @@ set tabstop=4   " size of a hard tabstop
 set shiftwidth=4    " size of an "indent"
 set softtabstop=4
 set showtabline=2 " Always display the tabline, even if there is only one tab
+set expandtab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
@@ -89,11 +93,19 @@ set matchpairs+=<:>  "HTML Editing
 set viminfo^=% "open buffers on close
 set t_Co=256
 set cursorline
+
+filetype plugin indent on
+au BufNewFile,BufRead *.less set filetype=css
+" AIRLINE
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='powerlineish'
+
+
 "==================
 "MAP KEYS
 "==================
 nnoremap <S-t> :NERDTree<CR>
-map <S-f> :call JsBeautify()<cr>
+map <S-f> :Autoformat<cr>
 nnoremap <F5> :GundoToggle<CR>
 "fast saving
 nmap<leader>Q :so $MYVIMRC<cr>
@@ -180,12 +192,8 @@ let g:used_javascript_libs = 'underscore,backbone'
 "==================
 let g:tern_map_keys=1
 let g:tern_show_argument_hints='on_hold'
-"==================
-"Airline
-"==================
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_alt_sep = '|'
-"==================
+
+"=================let g:Powerline_symbols = 'fancy'=
 "SNIPPETS
 "==================
 " make YCM compatible with UltiSnips (using supertab)
