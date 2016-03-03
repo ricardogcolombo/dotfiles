@@ -9,7 +9,7 @@ Plug 'easymotion/vim-easymotion'
 
 " Syntax
 Plug 'Shougo/deoplete.nvim' "autocomplete
-Plug 'Shougo/neocomplete.vim' "autocomplete
+Plug 'Shougo/neosnippet.vim'
 Plug 'vim-scripts/SyntaxComplete'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'scrooloose/syntastic'
@@ -26,17 +26,19 @@ Plug 'heavenshell/vim-jsdoc'
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin' "Show modified files in nerdtree
 Plug 'gregsexton/gitv'
 Plug 'mhinz/vim-grepper' "git grep
 
 
-" React
-Plug 'mxw/vim-jsx'
+"Javascript Specific
+Plug 'mxw/vim-jsx' " React
+Plug 'carlitux/deoplete-ternjs'
+
 
 " Format
-Plug 'scrooloose/nerdcommenter'
-Plug 'maksimr/vim-jsbeautify'
+Plug 'scrooloose/nerdcommenter' "Comment Code multiple languages support
+Plug 'maksimr/vim-jsbeautify' "Javascript Format
 Plug 'Raimondi/delimitMate' "auto close parenthesis,quotes..
 Plug 'Chiel92/vim-autoformat'
 
@@ -118,25 +120,15 @@ au BufNewFile,BufRead *.less set filetype=css
 "fast saving
 nmap<leader>Q :so $MYVIMRC<cr>
 "map space to / search
-map <space> /
+" map <space> /
 map <c-space> ?
 map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 map <silent><C-v> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-" GIT 
-map <Leader>gc :GCommit -m ""<LEFT>
-map <Leader>gs :GStatus
 map <Leader>S :SyntasticCheck<CR>
 
-nmap t <Plug>(easymotion-t2)
 nmap <Leader>s O<Esc>
 nmap <CR> o<Esc>
-
-noremap <A-j> <C-W>j<CR>
-noremap <A-k> <C-W>k<CR>
-noremap <A-h> <C-W>h<CR>
-noremap <A-l> <C-W>l<CR>
-let g:move_key_modifier = 'C'
 
 "Copy paste to/from clipboard
 vnoremap <C-c> "*y
@@ -158,9 +150,10 @@ let g:used_javascript_libs = 'underscore,backbone'
 "==================
 " EASY MOTION MAP
 "==================
+nmap t <Plug>(easymotion-t2)
 nmap s <Plug>(easymotion-s2)
-map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+map  / <Plug>(easymotion-sn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 map <Leader>l <Plug>(easymotion-lineforward)
@@ -170,6 +163,16 @@ map <Leader>h <Plug>(easymotion-linebackward)
 "Open current file directory with nerdtree
 let g:EasyMotion_smartcase = 1
 
+"==================
+" GIT 
+"==================
+map <Leader>gc :GCommit -m ""<LEFT>
+map <Leader>gs :GStatus
+
+"==================
+"VIM MOVE
+"==================
+let g:move_key_modifier = 'C' "Use this to change Alt function to Ctrl
 
 "==================
 " AIRLINE
@@ -188,8 +191,8 @@ let g:deoplete#data_directory = $HOME.'.vim/cache/deoplete'
 let g:deoplete#force_omni_input_patterns = get(g:, 'deoplete#force_omni_input_patterns', {})
 let g:deoplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-let g:neocomplete#enable_at_startup = 1
-
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.config/nvim/plugged/vim-snippets/snippets'
 "==================
 "NERDTREEE
 "==================
@@ -208,7 +211,7 @@ nnoremap <F5> :GundoToggle<CR>
 "==================
 "JSDOC
 "==================
-nmap <silent> <C-l> <Plug>(jsdoc)
+nmap <silent> <Leader>jd <Plug>(jsdoc)
 
 "==================
 "CTRLSF
@@ -225,7 +228,7 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 "==================
 "Choose Win
 "==================
-nmap  -  <Plug>(choosewin)
+nmap  <Leader>-  <Plug>(choosewin)
 
 "NERD COMMENTER SPACE AFTER COMMENT 
 let NERDSpaceDelims=1
@@ -267,6 +270,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>""
 "==================
 let g:snips_trigger_key = '<C-\>'
 let g:UltiSnipsSnippetsDir=plugDir.'/vim-snippets/UltiSnips'
+
+" Snippets
 
 
 "==================
