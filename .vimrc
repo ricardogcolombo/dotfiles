@@ -7,17 +7,21 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 
-" Syntax
+" Snippets and autocomplete
 Plug 'Shougo/deoplete.nvim' "autocomplete
 Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/SyntaxComplete'
+
+" Syntax
 Plug 'jelera/vim-javascript-syntax'
 Plug 'scrooloose/syntastic'
 Plug 'genoma/vim-less'
 Plug 'othree/yajs.vim'
-Plug 'mattn/emmet-vim'
 Plug 'JulesWang/css.vim'
-Plug 'SirVer/ultisnips' 
+Plug 'Konfekt/FastFold'
+Plug 'SirVer/ultisnips'
 Plug 'ricardogcolombo/vim-snippets'
 Plug 'pangloss/vim-javascript'
 
@@ -35,7 +39,6 @@ Plug 'mhinz/vim-grepper' "git grep
 Plug 'mxw/vim-jsx' " React
 Plug 'carlitux/deoplete-ternjs'
 
-
 " Format
 Plug 'scrooloose/nerdcommenter' "Comment Code multiple languages support
 Plug 'maksimr/vim-jsbeautify' "Javascript Format
@@ -49,26 +52,34 @@ Plug 'crusoexia/vim-monokai'
 Plug 'vim-airline/vim-airline-themes'
 
 " tools
-Plug 'vim-airline/vim-airline'  
+Plug 'vim-airline/vim-airline'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
 Plug 't9md/vim-choosewin' "move between windows easily
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'sjl/gundo.vim' "tree of changes in buffer
-Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors' "edit multiple lines
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim' "editor Config files
 Plug 'kshenoy/vim-signature' "show marks
 Plug 'matze/vim-move' " traslade rows with arrows
-Plug 'ternjs/tern_for_vim'
+Plug 'blindFS/vim-taskwarrior'
 
-"vim 
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
+Plug 'Shougo/unite.vim'
+
+" "vim
 Plug 'tpope/vim-scriptease'
 Plug 'dbakker/vim-lint'
 
+Plug 'mattn/webapi-vim'
+
+
+Plug 'szw/vim-tags'
 
 call plug#end()
 
@@ -132,7 +143,7 @@ nmap <CR> o<Esc>
 
 "Copy paste to/from clipboard
 vnoremap <C-c> "*y
-"save 
+"save
 nnoremap <Leader>w :w<CR>
 
 nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
@@ -143,7 +154,7 @@ nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 let g:molokai_original = 1
 let g:rehash256 = 1
-let mapleader = ',' 
+let mapleader = ','
 let g:used_javascript_libs = 'underscore,backbone'
 "==================
 "PLUGINS
@@ -163,8 +174,46 @@ map <Leader>h <Plug>(easymotion-linebackward)
 "Open current file directory with nerdtree
 let g:EasyMotion_smartcase = 1
 
+" JSX
+let g:jsx_ext_required = 0
+
 "==================
-" GIT 
+" prosession
+"==================
+let g:loaded_prosession = 0
+
+"==================
+" NEOSNIPPETS
+"==================
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+    set conceallevel=2 concealcursor=niv
+endif
+
+
+let g:EditorConfig_core_mode = 'external_command'
+
+"==================
+" DOTOO
+"==================
+let g:dotoo#capture#refile = expand('~/Documents/dotoo-files/refile.dotoo')
+let g:dotoo#agenda#files = ['~/Documents/dotoo-files/*.dotoo']
+
+"==================
+" GIT
 "==================
 map <Leader>gc :GCommit -m ""<LEFT>
 map <Leader>gs :GStatus
@@ -181,7 +230,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
 
 "==================
-" Deoplete 
+" TAGBAR
+"==================
+let g:vim_tags_auto_generate = 1
+"==================
+" Deoplete
 "==================
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_completion_start_length = 1
@@ -230,7 +283,7 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 "==================
 nmap  <Leader>-  <Plug>(choosewin)
 
-"NERD COMMENTER SPACE AFTER COMMENT 
+"NERD COMMENTER SPACE AFTER COMMENT
 let NERDSpaceDelims=1
 "==================
 "AUTOCOMMAND
@@ -242,7 +295,7 @@ autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 autocmd FileType javascript setlocal omnifunc=tern#CompleteJS
 "return to last edit position when opening files
-autocmd BufReadPost * 
+autocmd BufReadPost *
             \ if line("'\'") > 0 && line("'\'") >  line("$") |
             \    exe "normal! g`\"" |
             \ endif
@@ -292,7 +345,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list =1 
+let g:syntastic_always_populate_loc_list =1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -431,8 +484,6 @@ cabbrev shell Shel
 
 
 
-
-
 function! g:UltiSnips_Complete()
     call UltiSnips#ExpandSnippet()
     if g:ulti_expand_res == 0
@@ -451,19 +502,9 @@ endfunction
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-e>"
-" this mapping Enter key to <C-y> to chose the current highlight item 
+" this mapping Enter key to <C-y> to chose the current highlight item
 " and close the selection list, same as other IDEs.
 " CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-
-" function! g:allVarsOnTop()
-    " "contains all the var to define at the top of the function;
-    " let s:varsNames = []
-    " echo a:0
-    " echo a:1
-
-    " echo "testing"
-
-" endfunction
-" command! allVarsOnTop call allVarsOnTop()
+source  ~/scripts/test.vim
