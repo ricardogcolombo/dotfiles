@@ -4,11 +4,13 @@ export LC_ALL=en_US.UTF-8
 export POWERLINE_COMMAND=~/Library/Python/lib/2.7/bin/powerline
 export LANG=en_US.UTF-8
 
+export TERM="xterm-256color"
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="amuse"
 # powerline_path=$(python -c 'import pkgutil; print pkgutil.get_loader("powerline").filename' 2>/dev/null)
   # if [[ "$powerline_path" != "" ]]; then
     # source ${powerline_path}/bindings/bash/powerline.sh

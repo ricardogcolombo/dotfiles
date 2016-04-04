@@ -1,20 +1,25 @@
 set nocompatible
+filetype off
 call plug#begin('~/.config/nvim/plugged')
 " Make sure you use single quotes
 " Group dependencies, vim-snippets depends on ultisnips
 " search
 Plug 'dyng/ctrlsf.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 
+Plug 'joonty/vdebug'
 " Snippets and autocomplete
 Plug 'Shougo/deoplete.nvim' "autocomplete
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/SyntaxComplete'
+Plug 'ryanoasis/nerd-fonts'
 
 " Syntax
+Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
+Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
 Plug 'jelera/vim-javascript-syntax'
 Plug 'scrooloose/syntastic'
 Plug 'genoma/vim-less'
@@ -24,19 +29,27 @@ Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips'
 Plug 'ricardogcolombo/vim-snippets'
 Plug 'pangloss/vim-javascript'
+Plug 'altercation/vim-colors-solarized'
 
 " Jsdoc
 Plug 'heavenshell/vim-jsdoc'
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'Xuyuanp/nerdtree-git-plugin' "Show modified files in nerdtree
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle' ] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
 Plug 'gregsexton/gitv'
 Plug 'mhinz/vim-grepper' "git grep
 
+" nodejs
+Plug 'moll/vim-node', { 'for': 'javascript' } " node support
+
+" tmux support
+Plug 'benmills/vimux' " tmux integration for vim
 
 "Javascript Specific
 Plug 'mxw/vim-jsx' " React
+Plug 'yannickcr/eslint-plugin-react'
+Plug 'jbgutierrez/vim-babel'
 Plug 'carlitux/deoplete-ternjs'
 
 " Format
@@ -56,10 +69,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
 Plug 't9md/vim-choosewin' "move between windows easily
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'sjl/gundo.vim' "tree of changes in buffer
-" Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors' "edit multiple lines
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -81,14 +93,19 @@ Plug 'mattn/webapi-vim'
 
 Plug 'szw/vim-tags'
 
+
+Plug 'ryanoasis/vim-webdevicons'
+
 call plug#end()
 
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h12
 let g:vimrcPath = $MYVIMRC
 let g:vimPath = system('realpath '.g:vimrcPath)
 let g:vimDir = fnamemodify(g:vimPath, ':h')
 let g:plugDir = g:vimDir.'/plugged'
-
-colorscheme molokai
+set encoding=utf8
+syntax enable
+colorscheme monokai
 set background=dark
 if &t_Co > 2 || has("gui_running")
     " switch syntax highlighting on, when the terminal has colors
@@ -124,7 +141,6 @@ set cursorline
 
 filetype plugin indent on
 au BufNewFile,BufRead *.less set filetype=css
-
 "==================
 "MAP KEYS
 "==================
@@ -174,8 +190,20 @@ map <Leader>h <Plug>(easymotion-linebackward)
 "Open current file directory with nerdtree
 let g:EasyMotion_smartcase = 1
 
+
 " JSX
 let g:jsx_ext_required = 0
+let g:syntastic_javascript_checkers = ['eslint']
+
+" Override eslint with local version where necessary.
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+    let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+    let g:syntastic_javascript_eslint_exec = local_eslint
+endif
+
 
 "==================
 " prosession
@@ -227,7 +255,8 @@ let g:move_key_modifier = 'C' "Use this to change Alt function to Ctrl
 " AIRLINE
 "==================
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='luna'
 
 "==================
 " TAGBAR
@@ -326,7 +355,10 @@ let g:UltiSnipsSnippetsDir=plugDir.'/vim-snippets/UltiSnips'
 
 " Snippets
 
-
+" vim indent guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 "==================
 "multiple cursor
 "==================
