@@ -16,7 +16,7 @@ source ~/dotfiles/vimrcmodules/neosnippets.vim
 " git fugitive and gundo related config
 source ~/dotfiles/vimrcmodules/git.vim
 " deoplete config
-source ~/dotfiles/vimrcmodules/autocomplete.vim
+source ~/dotfiles/vimrcmodules/deoplete.vim
 " syntastic config
 source ~/dotfiles/vimrcmodules/syntastic.vim
 " multicursor  
@@ -100,14 +100,9 @@ autocmd BufReadPost *
             \    exe "normal! g`\"" |
             \ endif
 
-"==================
-"TERN
-"==================
-let g:tern_map_keys=1
-let g:tern_show_argument_hints='on_hold'
 
 "==================
-"AG
+"Ack
 "==================
 let g:ackprg = 'ag --nogroup --nocolor --column'
 

@@ -66,6 +66,7 @@ nmap <CR> o<Esc>
 
 "Copy paste to/from clipboard
 vnoremap <C-c> "*y
+
 "save
 nnoremap <Leader>w :w<CR>
 
