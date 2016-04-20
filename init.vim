@@ -2,28 +2,28 @@ set nocompatible
 filetype off
 
 " Load Plugins
-source ~/dotfiles/vimrcmodules/pluggins.vim
+source ~/dotfiles/vim_modules/pluggins.vim
 " set general vim customization
-source ~/dotfiles/vimrcmodules/general.vim
+source ~/dotfiles/vim_modules/general.vim
 " easy motion related config
-source ~/dotfiles/vimrcmodules/easymotion.vim
+source ~/dotfiles/vim_modules/easymotion.vim
 " ctrlp related config
-source ~/dotfiles/vimrcmodules/ctrlp.vim
+source ~/dotfiles/vim_modules/ctrlp.vim
 " ctrlsf related config
-source ~/dotfiles/vimrcmodules/ctrlsf.vim
+source ~/dotfiles/vim_modules/ctrlsf.vim
 " neosnippets related config
-source ~/dotfiles/vimrcmodules/neosnippets.vim
+source ~/dotfiles/vim_modules/neosnippets.vim
 " git fugitive and gundo related config
-source ~/dotfiles/vimrcmodules/git.vim
+source ~/dotfiles/vim_modules/git.vim
 " deoplete config
-source ~/dotfiles/vimrcmodules/deoplete.vim
+source ~/dotfiles/vim_modules/deoplete.vim
 " syntastic config
-source ~/dotfiles/vimrcmodules/syntastic.vim
+source ~/dotfiles/vim_modules/syntastic.vim
 " multicursor  
-source ~/dotfiles/vimrcmodules/multicursor.vim
+source ~/dotfiles/vim_modules/multicursor.vim
 
 " custom functions
-source ~/dotfiles/vimrcmodules/functions.vim
+source ~/dotfiles/vim_modules/functions.vim
 
 
 
