@@ -48,13 +48,14 @@ Plug 'moll/vim-node', { 'for': 'javascript' } " node support
 Plug 'benmills/vimux' " tmux integration for vim
 
 "Javascript Specific
-Plug 'mxw/vim-jsx' " React
-Plug 'yannickcr/eslint-plugin-react'
+" Plug 'mxw/vim-jsx' " React
+" Plug 'yannickcr/eslint-plugin-react'
 Plug 'jbgutierrez/vim-babel'
 Plug 'carlitux/deoplete-ternjs'
 
 " Format
-Plug 'scrooloose/nerdcommenter' "Comment Code multiple languages support
+
+Plug 'scrooloose/nerdcommenter'
 Plug 'maksimr/vim-jsbeautify' "Javascript Format
 Plug 'Raimondi/delimitMate' "auto close parenthesis,quotes..
 Plug 'Chiel92/vim-autoformat'
@@ -73,7 +74,7 @@ Plug 't9md/vim-choosewin' "move between windows easily
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'sjl/gundo.vim' "tree of changes in buffer
 Plug 'tpope/vim-surround'
-Plug 'terryma/vim-multiple-cursors' "edit multiple lines
+" Plug 'terryma/vim-multiple-cursors' "edit multiple lines
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim' "editor Config files

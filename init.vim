@@ -16,7 +16,7 @@ source ~/dotfiles/vim_modules/neosnippets.vim
 " git fugitive and gundo related config
 source ~/dotfiles/vim_modules/git.vim
 " deoplete config
-source ~/dotfiles/vim_modules/deoplete.vim
+source ~/dotfiles/vim_modules/autocomplete.vim
 " syntastic config
 source ~/dotfiles/vim_modules/syntastic.vim
 " multicursor  
@@ -106,12 +106,6 @@ autocmd BufReadPost *
 "==================
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-"==================
-"ULTISNIPSEXPANDTRIGGER
-"==================
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>""
 
 "==================
 "SNIPMATE

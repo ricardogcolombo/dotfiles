@@ -18,3 +18,11 @@ imap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
             \ <SID>check_back_space() ? "\<TAB>" :
             \ deoplete#mappings#manual_complete()
+
+
+"==================
+"ULTISNIPSEXPANDTRIGGER
+"==================
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>""
