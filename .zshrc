@@ -97,26 +97,7 @@ alias vim=nvim
 
 export PATH=$PATH:~/scripts
 export GOPATH=$HOME/Documents/goProjects
-alias adidas='cd ~/../../Applications/XAMPP/htdocs/proyectos/adidas/'
-alias oneview='cd ~/../../Applications/XAMPP/htdocs/proyectos/adidas/oneview'
-alias audi='cd ~/../../Applications/XAMPP/htdocs/proyectos/audipeonline/'
-alias eh='cd ~/../../Applications/XAMPP/htdocs/proyectos/eh_sapmobile_restructure/com.eh.sapmobile/'
-alias masterdata='cd ~/../../Applications/XAMPP/htdocs/proyectos/adidas/masterdata/'
-alias proyectos='cd ~/../../Applications/XAMPP/htdocs/proyectos/'
-alias personales='cd ~/../../Applications/XAMPP/htdocs/proyectos/personales/'
-alias angular='cd ~/../../Applications/XAMPP/htdocs/angular/'
-alias react='cd ~/../../Applications/XAMPP/htdocs/proyectos/react/'
-alias webserv='cd ~/../../Applications/XAMPP/htdocs/'
-alias facu='cd ~/Documents/facu/'
-alias VimBundle='cd ~/.nvim/bundle'
-alias svnproject='cd ~/Documents/svnproject/'
-alias openchrome='sudo open -a "~/../../Applications/Google\ Chrome.app" --args --disable-web-security'
-alias opensafari='sudo open -a '/Applications/Safari.app' --args --disable-web-security'
-alias g++='clang'
-alias tmux="TERM=screen-256color-bce tmux"
-alias gruntEH="sh ~/../../Applications/XAMPP/htdocs/proyectos/ehBuild.sh"
 
-alias goProjects='cd ~/Documents/goProjects/src/goProjects'
 
 ##
 # Your previous /Users/sovanta/.bash_profile file was backed up as /Users/sovanta/.bash_profile.macports-saved_2015-03-24_at_19:24:14
