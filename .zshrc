@@ -1,23 +1,27 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
-export POWERLINE_COMMAND=~/Library/Python/lib/2.7/bin/powerline
 export LANG=en_US.UTF-8
-
 export TERM="xterm-256color"
+
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/local/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh
+
+powerline_path=$(python -c 'import pkgutil; print pkgutil.get_loader("powerline").filename' 2>/dev/null)
+
+  if [[ "$powerline_path" != "" ]]; then
+    source ${powerline_path}/bindings/bash/powerline.sh
+  else
+    # Setup your normal PS1 here.
+  fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="amuse"
-# powerline_path=$(python -c 'import pkgutil; print pkgutil.get_loader("powerline").filename' 2>/dev/null)
-  # if [[ "$powerline_path" != "" ]]; then
-    # source ${powerline_path}/bindings/bash/powerline.sh
-  # else
-    # # Setup your normal PS1 here.
-  # fi
-
+ZSH_THEME="agnoster"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -59,7 +63,7 @@ bindkey '^[[1;9D' backward-word
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git svn bower brew npm history dirpersist brew grunt tmux go golang node)
+plugins=(git svn bower brew npm history dirpersist brew grunt tmux go golang node powerline)
 
 # User configuration
 
@@ -93,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias vim=nvim
 alias vim=nvim
 
 export PATH=$PATH:~/scripts

@@ -35,6 +35,7 @@ Plug 'altercation/vim-colors-solarized'
 " Jsdoc
 Plug 'heavenshell/vim-jsdoc'
 " git
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle' ] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
@@ -48,8 +49,8 @@ Plug 'moll/vim-node', { 'for': 'javascript' } " node support
 Plug 'benmills/vimux' " tmux integration for vim
 
 "Javascript Specific
-" Plug 'mxw/vim-jsx' " React
-" Plug 'yannickcr/eslint-plugin-react'
+Plug 'mxw/vim-jsx' " React
+Plug 'yannickcr/eslint-plugin-react'
 Plug 'jbgutierrez/vim-babel'
 Plug 'carlitux/deoplete-ternjs'
 
@@ -62,9 +63,10 @@ Plug 'Chiel92/vim-autoformat'
 
 " themes
 Plug 'junegunn/seoul256.vim'
+Plug 'jacoborus/tender'
 Plug 'tomasr/molokai'
 Plug 'crusoexia/vim-monokai'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'ricardogcolombo/vim-airline-themes'
 
 " tools
 Plug 'vim-airline/vim-airline'
@@ -75,7 +77,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'sjl/gundo.vim' "tree of changes in buffer
 Plug 'tpope/vim-surround'
 " Plug 'terryma/vim-multiple-cursors' "edit multiple lines
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim' "editor Config files
 Plug 'kshenoy/vim-signature' "show marks
@@ -93,9 +95,12 @@ Plug 'dbakker/vim-lint'
 Plug 'mattn/webapi-vim'
 
 
-Plug 'szw/vim-tags'
+" Plug 'szw/vim-tags'
 
+" Haskell
+Plug 'lukerandall/haskellmode-vim'
 
+" Others
 Plug 'ryanoasis/vim-webdevicons'
 
 call plug#end()

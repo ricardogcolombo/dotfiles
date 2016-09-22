@@ -56,12 +56,12 @@ let g:move_key_modifier = 'C' "Use this to change Alt function to Ctrl
 "==================
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='luna'
+let g:airline_theme='ric'
 
 "==================
 " TAGBAR
 "==================
-let g:vim_tags_auto_generate = 1
+" let g:vim_tags_auto_generate = 1
 
 "==================
 "NERDTREEE

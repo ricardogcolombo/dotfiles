@@ -8,9 +8,9 @@ nnoremap ; :
 let g:molokai_original = 1
 let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
-colorscheme monokai
+colorscheme tender
 
-
+set termguicolors
 set background=dark
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h12
 set encoding=utf8
