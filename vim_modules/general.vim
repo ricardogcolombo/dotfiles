@@ -12,8 +12,14 @@ colorscheme tender
 
 set termguicolors
 set background=dark
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h12
+set guifont=Menlo\ Regular:h12
 set encoding=utf8
+set fileencoding=utf-8
+set fileencodings=utf-8
+
+set bomb
+set binary
+
 syntax enable
 set t_Co=256
 if &t_Co > 2 || has("gui_running")
@@ -25,9 +31,17 @@ set mouse=a
 set clipboard=unnamed "clipboard issue with tmux and iterm
 set nowrap " no use swp files
 set autoindent
+
+" search
 set incsearch  "make search act like search in modern browsers
+set hlsearch
 set showmatch "show matching for ({[ "
+
+
+"" Directories for swp files
+set nobackup
 set noswapfile   "noswap files
+
 set tabstop=4   " size of a hard tabstop
 set shiftwidth=4    " size of an "indent"
 set softtabstop=4

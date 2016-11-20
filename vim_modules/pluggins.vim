@@ -103,4 +103,7 @@ Plug 'lukerandall/haskellmode-vim'
 " Others
 Plug 'ryanoasis/vim-webdevicons'
 
+
+Plug 'sheerun/vim-polyglot'
+
 call plug#end()
