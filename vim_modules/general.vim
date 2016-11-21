@@ -10,9 +10,12 @@ let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
 colorscheme tender
 
+" set line number color
+highlight LineNr guifg=#CE753E
+
 set termguicolors
 set background=dark
-set guifont=Menlo\ Regular:h12
+set guifont=Menlo\ Regular:h11
 set encoding=utf8
 set fileencoding=utf-8
 set fileencodings=utf-8
@@ -54,6 +57,7 @@ set autoread      " Reload files changted outside vim
 set matchpairs+=<:>  "HTML Editing
 set viminfo^=% "open buffers on close
 set cursorline
+set relativenumber
 set nu "number lines
 set autochdir "Auto set dir
 
