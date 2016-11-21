@@ -96,3 +96,13 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
+
+
+let g:webdevicons_enable_nerdtree = 1
+
+let g:webdevicons_enable_unite = 1
+
+let g:webdevicons_enable_airline_tabline = 1
+
+let g:webdevicons_enable_ctrlp = 1

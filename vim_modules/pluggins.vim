@@ -19,6 +19,7 @@ Plug 'ryanoasis/nerd-fonts'
 Plug 'vim-latex/vim-latex'
 Plug 'lervag/vimtex'
 " Syntax
+Plug 'sheerun/vim-polyglot'
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
 Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
 Plug 'jelera/vim-javascript-syntax'
@@ -93,7 +94,7 @@ Plug 'tpope/vim-scriptease'
 Plug 'dbakker/vim-lint'
 
 Plug 'mattn/webapi-vim'
-
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Plug 'szw/vim-tags'
 
@@ -104,6 +105,8 @@ Plug 'lukerandall/haskellmode-vim'
 Plug 'ryanoasis/vim-webdevicons'
 
 Plug 'myusuf3/numbers.vim'
-Plug 'sheerun/vim-polyglot'
+
+Plug 'mhinz/vim-startify'
+
 
 call plug#end()

@@ -21,10 +21,14 @@ source ~/dotfiles/vim_modules/autocomplete.vim
 source ~/dotfiles/vim_modules/syntastic.vim
 " multicursor  
 source ~/dotfiles/vim_modules/multicursor.vim
+" relative numbers
 source ~/dotfiles/vim_modules/numbers.vim
-
 " custom functions
 source ~/dotfiles/vim_modules/functions.vim
+"startify configs
+source ~/dotfiles/vim_modules/startify.vim
+" config for devicons
+source ~/dotfiles/vim_modules/devicons.vim
 
 
 
