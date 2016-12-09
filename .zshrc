@@ -4,6 +4,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
 
+# alias loadnvm=". /usr/local/opt/nvm/nvm.sh"
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1

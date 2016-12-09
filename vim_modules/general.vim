@@ -8,7 +8,7 @@ nnoremap ; :
 let g:molokai_original = 1
 let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
-colorscheme tender
+colorscheme monokai
 
 " set line number color
 highlight LineNr guifg=#CE753E
@@ -106,3 +106,5 @@ let g:webdevicons_enable_unite = 1
 let g:webdevicons_enable_airline_tabline = 1
 
 let g:webdevicons_enable_ctrlp = 1
+
+let g:ackprg = 'ag --vimgrep'

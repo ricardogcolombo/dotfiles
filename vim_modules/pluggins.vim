@@ -13,7 +13,6 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/SyntaxComplete'
-Plug 'ryanoasis/nerd-fonts'
 
 "" latex
 Plug 'vim-latex/vim-latex'
@@ -27,11 +26,11 @@ Plug 'scrooloose/syntastic'
 Plug 'genoma/vim-less'
 Plug 'othree/yajs.vim'
 Plug 'JulesWang/css.vim'
-Plug 'Konfekt/FastFold'
+" Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips'
 Plug 'ricardogcolombo/vim-snippets'
 Plug 'pangloss/vim-javascript'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 
 " Jsdoc
 Plug 'heavenshell/vim-jsdoc'
@@ -53,6 +52,7 @@ Plug 'benmills/vimux' " tmux integration for vim
 Plug 'mxw/vim-jsx' " React
 Plug 'yannickcr/eslint-plugin-react'
 Plug 'jbgutierrez/vim-babel'
+Plug 'ternjs/tern_for_vim'
 Plug 'carlitux/deoplete-ternjs'
 
 " Format
@@ -71,22 +71,26 @@ Plug 'ricardogcolombo/vim-airline-themes'
 
 " tools
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
 Plug 't9md/vim-choosewin' "move between windows easily
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'sjl/gundo.vim' "tree of changes in buffer
 Plug 'tpope/vim-surround'
 " Plug 'terryma/vim-multiple-cursors' "edit multiple lines
-" Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim' "editor Config files
 Plug 'kshenoy/vim-signature' "show marks
 Plug 'matze/vim-move' " traslade rows with arrows
 Plug 'blindFS/vim-taskwarrior'
 
+
+" manage sessions 
 Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
+
+
+
 Plug 'Shougo/unite.vim'
 
 " "vim
@@ -103,6 +107,7 @@ Plug 'lukerandall/haskellmode-vim'
 
 " Others
 Plug 'ryanoasis/vim-webdevicons'
+Plug 'ryanoasis/nerd-fonts'
 
 Plug 'myusuf3/numbers.vim'
 
