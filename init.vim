@@ -7,8 +7,8 @@ source ~/dotfiles/vim_modules/pluggins.vim
 source ~/dotfiles/vim_modules/general.vim
 " easy motion related config
 source ~/dotfiles/vim_modules/easymotion.vim
-" ctrlp related config
-source ~/dotfiles/vim_modules/ctrlp.vim
+" fzf related config
+source ~/dotfiles/vim_modules/fzf.vim
 " ctrlsf related config
 source ~/dotfiles/vim_modules/ctrlsf.vim
 " neosnippets related config

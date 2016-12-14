@@ -4,7 +4,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Group dependencies, vim-snippets depends on ultisnips
 " search
 Plug 'dyng/ctrlsf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 
 " Snippets and autocomplete
@@ -53,7 +52,7 @@ Plug 'mxw/vim-jsx' " React
 Plug 'yannickcr/eslint-plugin-react'
 Plug 'jbgutierrez/vim-babel'
 Plug 'ternjs/tern_for_vim'
-Plug 'carlitux/deoplete-ternjs'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Format
 
@@ -90,9 +89,9 @@ Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-Plug 'Shougo/unite.vim'
-
+Plug 'junegunn/fzf.vim'
 " "vim
 Plug 'tpope/vim-scriptease'
 Plug 'dbakker/vim-lint'

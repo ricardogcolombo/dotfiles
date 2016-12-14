@@ -108,3 +108,5 @@ let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_ctrlp = 1
 
 let g:ackprg = 'ag --vimgrep'
+
+let g:jsx_ext_required = 0
