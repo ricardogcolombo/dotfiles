@@ -9,9 +9,8 @@ let g:molokai_original = 1
 let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
 colorscheme monokai
-
+let g:molokai_original = 1
 " set line number color
-highlight LineNr guifg=#CE753E
 
 set termguicolors
 set background=dark
@@ -85,9 +84,6 @@ nmap <CR> o<Esc>
 "Copy paste to/from clipboard
 vnoremap <C-c> "*y
 
-"save
-nnoremap <Leader>w :w<CR>
-
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
@@ -104,8 +100,18 @@ let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_unite = 1
 
 let g:webdevicons_enable_airline_tabline = 1
-
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#enabled = 1
 let g:webdevicons_enable_ctrlp = 1
+
+" Move to the next buffer
+nmap <leader>0 :bnext<CR>
+
+" Delete Buffer and move to previous
+nmap <leader><Bs> :bp <BAR> bd #<CR>
+
+" Move to the previous buffer
+nmap <leader>= :bprevious<CR>
 
 let g:ackprg = 'ag --vimgrep'
 

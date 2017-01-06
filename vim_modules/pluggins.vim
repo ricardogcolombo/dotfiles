@@ -12,6 +12,7 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/SyntaxComplete'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 "" latex
 Plug 'vim-latex/vim-latex'
@@ -58,6 +59,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'maksimr/vim-jsbeautify' "Javascript Format
+Plug 'crusoexia/vim-javascript-lib'
 Plug 'Raimondi/delimitMate' "auto close parenthesis,quotes..
 Plug 'Chiel92/vim-autoformat'
 
@@ -75,7 +77,7 @@ Plug 't9md/vim-choosewin' "move between windows easily
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'sjl/gundo.vim' "tree of changes in buffer
 Plug 'tpope/vim-surround'
-" Plug 'terryma/vim-multiple-cursors' "edit multiple lines
+Plug 'terryma/vim-multiple-cursors' "edit multiple lines
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim' "editor Config files
@@ -108,9 +110,8 @@ Plug 'lukerandall/haskellmode-vim'
 Plug 'ryanoasis/vim-webdevicons'
 Plug 'ryanoasis/nerd-fonts'
 
-Plug 'myusuf3/numbers.vim'
 
 Plug 'mhinz/vim-startify'
-
-
+Plug 'tomasr/molokai'
+Plug 'crusoexia/vim-monokai'
 call plug#end()

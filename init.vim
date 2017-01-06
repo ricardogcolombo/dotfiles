@@ -76,7 +76,7 @@ nnoremap <S-t> :NERDTree<CR>
 "==================
 "AUTOFORMAT
 "==================
-map <S-f> :Autoformat<cr>
+map <Leader>2 :Autoformat<cr>
 
 "==================
 "JSDOC

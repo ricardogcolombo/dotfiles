@@ -28,7 +28,7 @@ ulimit -n 2048
 bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
-plugins=(git svn bower brew npm history dirpersist brew grunt tmux go golang node powerline)
+plugins=(git svn bower brew nvm history dirpersist brew grunt tmux go golang node powerline)
 
 # User configuration
 
