@@ -44,3 +44,6 @@ export GOPATH=$HOME/Documents/goProjects
 
 
 [ -f  ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# autoenv
+source $(brew --prefix autoenv)/activate.sh
