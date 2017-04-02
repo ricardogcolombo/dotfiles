@@ -56,6 +56,9 @@ set autoread      " Reload files changted outside vim
 set matchpairs+=<:>  "HTML Editing
 set viminfo^=% "open buffers on close
 set cursorline
+set cursorcolumn
+let &colorcolumn="80,".join(range(81,999),",")
+
 set relativenumber
 set nu "number lines
 set autochdir "Auto set dir
