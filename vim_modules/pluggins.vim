@@ -18,6 +18,8 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-latex/vim-latex'
 Plug 'lervag/vimtex'
 " Syntax
+"
+Plug 'isRuslan/vim-es6'
 Plug 'sheerun/vim-polyglot'
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
 Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
@@ -56,7 +58,6 @@ Plug 'ternjs/tern_for_vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Format
-
 Plug 'scrooloose/nerdcommenter'
 Plug 'maksimr/vim-jsbeautify' "Javascript Format
 Plug 'crusoexia/vim-javascript-lib'
@@ -66,8 +67,7 @@ Plug 'Chiel92/vim-autoformat'
 " themes
 Plug 'junegunn/seoul256.vim'
 Plug 'jacoborus/tender'
-Plug 'tomasr/molokai'
-Plug 'crusoexia/vim-monokai'
+Plug 'ricardogcolombo/rtheme'
 Plug 'ricardogcolombo/vim-airline-themes'
 
 " tools
@@ -83,8 +83,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim' "editor Config files
 Plug 'kshenoy/vim-signature' "show marks
 Plug 'matze/vim-move' " traslade rows with arrows
-Plug 'blindFS/vim-taskwarrior'
-
 
 " manage sessions 
 Plug 'tpope/vim-obsession'
