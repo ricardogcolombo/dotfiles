@@ -69,7 +69,7 @@ let g:airline_theme='ric'
 "==================
 "NERDTREEE
 "==================
-nnoremap <S-t> :NERDTree<CR>
+nnoremap <S-t> :new<CR>:resize 10<CR>:term<CR>
 
 "==================
 "AUTOFORMAT
