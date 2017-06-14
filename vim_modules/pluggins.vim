@@ -112,4 +112,7 @@ Plug 'ryanoasis/nerd-fonts'
 Plug 'mhinz/vim-startify'
 Plug 'tomasr/molokai'
 Plug 'crusoexia/vim-monokai'
+
+Plug 'neovim/node-host'
+
 call plug#end()

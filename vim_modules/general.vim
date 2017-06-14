@@ -119,3 +119,7 @@ nmap <leader>= :bprevious<CR>
 let g:ackprg = 'ag --vimgrep'
 
 let g:jsx_ext_required = 0
+" create a tmux terminal
+command OpenTerminal ! tmux split-window -v -l 10 -d \; 
+" esc from term in vim
+tnoremap <ESC><ESC> <C-\><C-N>

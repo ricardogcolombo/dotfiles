@@ -30,8 +30,6 @@ source ~/dotfiles/vim_modules/startify.vim
 " config for devicons
 source ~/dotfiles/vim_modules/devicons.vim
 
-
-
 " JSX
 let g:jsx_ext_required = 0
 let g:syntastic_javascript_checkers = ['eslint']

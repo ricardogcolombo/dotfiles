@@ -1,8 +1,10 @@
+export NVIM_LISTEN_ADDRESS=127.0.0.1:6666 nvim
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
+
 
 # alias loadnvm=". /usr/local/opt/nvm/nvm.sh"
 powerline-daemon -q
