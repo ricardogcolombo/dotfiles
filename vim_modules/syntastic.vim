@@ -13,12 +13,6 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
-
-" let g:syntastic_error_symbol = '❌'
-" let g:syntastic_style_error_symbol = '⁉️'
-" let g:syntastic_warning_symbol = '⚠️'
-" let g:syntastic_style_warning_symbol = '💩'
-
 " let g:neomake_warning_sign = {
 " \ 'text': 'W',
 " \ 'texthl': 'WarningMsg',

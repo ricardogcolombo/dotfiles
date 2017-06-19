@@ -69,7 +69,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'jacoborus/tender'
 Plug 'ricardogcolombo/rtheme'
 Plug 'ricardogcolombo/vim-airline-themes'
-
+'
 " tools
 Plug 'vim-airline/vim-airline'
 Plug 'mileszs/ack.vim'
