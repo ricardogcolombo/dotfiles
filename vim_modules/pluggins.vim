@@ -7,23 +7,19 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'easymotion/vim-easymotion'
 
 " Snippets and autocomplete
-Plug 'Shougo/deoplete.nvim' "autocomplete
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'mattn/emmet-vim'
+Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
+" Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/SyntaxComplete'
-Plug 'vim-scripts/ReplaceWithRegister'
 
 "" latex
-Plug 'vim-latex/vim-latex'
-Plug 'lervag/vimtex'
+" Plug 'vim-latex/vim-latex' | Plug 'lervag/vimtex'
 " Syntax
 "
-Plug 'isRuslan/vim-es6'
+Plug 'isRuslan/vim-es6', {'for': 'javascript'}
 Plug 'sheerun/vim-polyglot'
 Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
 Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
-Plug 'jelera/vim-javascript-syntax'
+Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 Plug 'scrooloose/syntastic'
 Plug 'genoma/vim-less'
 Plug 'othree/yajs.vim'
@@ -35,7 +31,7 @@ Plug 'pangloss/vim-javascript'
 " Plug 'altercation/vim-colors-solarized'
 
 " Jsdoc
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
 " git
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
@@ -51,25 +47,26 @@ Plug 'moll/vim-node', { 'for': 'javascript' } " node support
 Plug 'benmills/vimux' " tmux integration for vim
 
 "Javascript Specific
-Plug 'mxw/vim-jsx' " React
-Plug 'yannickcr/eslint-plugin-react'
+Plug 'mxw/vim-jsx' , {'for': 'jsx'}
+Plug 'yannickcr/eslint-plugin-react', {'for': 'jsx'}
 Plug 'jbgutierrez/vim-babel'
 Plug 'ternjs/tern_for_vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Format
 Plug 'scrooloose/nerdcommenter'
-Plug 'maksimr/vim-jsbeautify' "Javascript Format
+Plug 'maksimr/vim-jsbeautify' 
 Plug 'crusoexia/vim-javascript-lib'
 Plug 'Raimondi/delimitMate' "auto close parenthesis,quotes..
 Plug 'Chiel92/vim-autoformat'
 
 " themes
-Plug 'junegunn/seoul256.vim'
 Plug 'jacoborus/tender'
 Plug 'ricardogcolombo/rtheme'
 Plug 'ricardogcolombo/vim-airline-themes'
-'
+Plug 'tomasr/molokai'
+Plug 'crusoexia/vim-monokai'
+
 " tools
 Plug 'vim-airline/vim-airline'
 Plug 'mileszs/ack.vim'
@@ -102,7 +99,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'szw/vim-tags'
 
 " Haskell
-Plug 'lukerandall/haskellmode-vim'
+Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 
 " Others
 Plug 'ryanoasis/vim-webdevicons'
@@ -110,8 +107,6 @@ Plug 'ryanoasis/nerd-fonts'
 
 
 Plug 'mhinz/vim-startify'
-Plug 'tomasr/molokai'
-Plug 'crusoexia/vim-monokai'
 
 Plug 'neovim/node-host'
 
