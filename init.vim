@@ -69,7 +69,8 @@ let g:airline_theme='ric'
 "==================
 "NERDTREEE
 "==================
-nnoremap <S-t> :new<CR>:resize 10<CR>:term<CR>
+nnoremap <S-o> :new<CR>:resize 10<CR>:term<CR>
+nnoremap <S-t> :NERDTreeToggle<CR>
 
 "==================
 "AUTOFORMAT
@@ -96,7 +97,9 @@ let NERDSpaceDelims=1
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-autocmd FileType javascript setlocal omnifunc=tern#CompleteJS
+
+autocmd FileType javascript :UltiSnipsAddFiletypes javascript
+
 "return to last edit position when opening files
 autocmd BufReadPost *
             \ if line("'\'") > 0 && line("'\'") >  line("$") |
@@ -141,3 +144,5 @@ let g:UltiSnipsListSnippets="<c-e>"
 " and close the selection list, same as other IDEs.
 " CONFLICT with some plugins like tpope/Endwise
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
