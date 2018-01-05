@@ -85,7 +85,7 @@ nmap <silent> <Leader>jd <Plug>(jsdoc)
 "==================
 "Choose Win
 "==================
-nmap  <Leader>-  <Plug>(choosewin)
+nmap  <Leader><TAB>  <Plug>(choosewin)
 
 "NERD COMMENTER SPACE AFTER COMMENT
 let NERDSpaceDelims=1

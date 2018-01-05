@@ -1,10 +1,12 @@
-export NVIM_LISTEN_ADDRESS=127.0.0.1:6666 nvim
+export NVIM_LISTEN_ADDRESS=/tmp/nvim nvim
+PYTHONPATH=/path/to/python-client nvim
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
 
+export CLICOLOR=1
 
 # alias loadnvm=". /usr/local/opt/nvm/nvm.sh"
 powerline-daemon -q
@@ -38,7 +40,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-alias vim=nvim
+
+export PATH="$HOME/neovim/bin:$PATH"
 alias vim=nvim
 
 export PATH=$PATH:~/scripts

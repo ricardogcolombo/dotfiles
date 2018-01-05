@@ -5,15 +5,12 @@
 let mapleader=" "
 nnoremap ; :
 
-let g:molokai_original = 1
 let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
-colorscheme monokai
-let g:molokai_original = 1
-" set line number color
-
-set termguicolors
 set background=dark
+" set line number color
+colorscheme molokai
+set termguicolors
 set guifont=Menlo\ Regular:h11
 set encoding=utf8
 set fileencoding=utf-8
@@ -57,7 +54,10 @@ set matchpairs+=<:>  "HTML Editing
 set viminfo^=% "open buffers on close
 set cursorline
 set cursorcolumn
-let &colorcolumn="80,".join(range(81,999),",")
+set colorcolumn=80
+
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
 
 set relativenumber
 set nu "number lines
@@ -65,6 +65,7 @@ set autochdir "Auto set dir
 
 filetype plugin indent on
 au BufNewFile,BufRead *.less set filetype=css
+
 
 let g:vimrcPath = $MYVIMRC
 let g:vimPath = system('realpath '.g:vimrcPath)
@@ -120,7 +121,22 @@ let g:ackprg = 'ag --vimgrep'
 
 let g:jsx_ext_required = 0
 " create a tmux terminal
-command OpenTerminal ! tmux split-window -v -l 10 -d \; 
+command OpenTerminal ! tmux split-window -v -l 10 -d \;
 " esc from term in vim
 tnoremap <ESC><ESC> <C-\><C-N>
 
+
+"enable keyboard shortcuts
+let g:tern_map_keys=1
+"show argument hints
+let g:tern_show_argument_hints='on_hold'
+
+let python_highlight_all = 1
+
+let g:spotify_token='BQAOqfxV5_Rcr3NI8gDL7_TBjy3fJ1H8YzcKZ2cRUWX9kg'
+
+" Calendar
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+set path+=**
