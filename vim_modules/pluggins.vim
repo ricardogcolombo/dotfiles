@@ -8,8 +8,7 @@ Plug 'easymotion/vim-easymotion'
 
 " Snippets and autocomplete
 Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
-" Plug 'mattn/emmet-vim'
-" Plug 'vim-scripts/SyntaxComplete'
+Plug 'vim-scripts/yntaxComplete'
 "" latex
 " Plug 'vim-latex/vim-latex' | Plug 'lervag/vimtex'
 " Syntax
@@ -21,11 +20,11 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 Plug 'scrooloose/syntastic'
 " Plug 'genoma/vim-less'
-" Plug 'othree/yajs.vim'
+Plug 'othree/yajs.vim'
 " Plug 'JulesWang/css.vim'
 " Plug 'Konfekt/FastFold'
-" Plug 'SirVer/ultisnips'
-" Plug 'ricardogcolombo/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'ricardogcolombo/vim-snippets'
 " Plug 'pangloss/vim-javascript'
 " Plug 'altercation/vim-colors-solarized'
 
@@ -40,11 +39,10 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle' ] } | Plug 'Xuyuanp/nerdtr
 " Plug 'mhinz/vim-grepper' "git grep
 
 " nodejs
-" Plug 'moll/vim-node', { 'for': 'javascript' } " node support
+Plug 'moll/vim-node', { 'for': 'javascript' } " node support
 
 " tmux support
-" Plug 'benmills/vimux' " tmux integration for vim
-
+" Plug 'benmills/vimux' " tmux integration for vim 
 "Javascript Specific
 " Plug 'mxw/vim-jsx' , {'for': 'jsx'}
 " Plug 'yannickcr/eslint-plugin-react', {'for': 'jsx'}
@@ -53,11 +51,11 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle' ] } | Plug 'Xuyuanp/nerdtr
 " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Format
-" Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 " Plug 'maksimr/vim-jsbeautify' 
 " Plug 'crusoexia/vim-javascript-lib'
 " Plug 'Raimondi/delimitMate' "auto close parenthesis,quotes..
-" Plug 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat'
 
 " themes
 " Plug 'ricardogcolombo/rtheme'
@@ -68,26 +66,26 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle' ] } | Plug 'Xuyuanp/nerdtr
 " tools
 " Plug 'vim-airline/vim-airline'
 " Plug 'mileszs/ack.vim'
-" Plug 't9md/vim-choosewin' "move between windows easily
+Plug 't9md/vim-choosewin' "move between windows easily
 " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-" " Plug 'sjl/gundo.vim' "tree of changes in buffer
-" Plug 'tpope/vim-surround'
+" Plug 'sjl/gundo.vim' "tree of changes in buffer
+Plug 'tpope/vim-surround'
 " Plug 'terryma/vim-multiple-cursors' "edit multiple lines
 " " Plug 'majutsushi/tagbar'
 " Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'editorconfig/editorconfig-vim' "editor Config files
+Plug 'editorconfig/editorconfig-vim' "editor Config files
 " Plug 'kshenoy/vim-signature' "show marks
-" Plug 'matze/vim-move' " traslade rows with arrows
+Plug 'matze/vim-move' " traslade rows with arrows
 
 " " manage sessions 
 " Plug 'tpope/vim-obsession'
 " Plug 'dhruvasagar/vim-prosession'
 
 
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" Plug 'junegunn/fzf.vim'
-" " "vim
+Plug 'junegunn/fzf.vim'
+"vim
 " Plug 'tpope/vim-scriptease'
 " Plug 'dbakker/vim-lint'
 
@@ -97,26 +95,25 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle' ] } | Plug 'Xuyuanp/nerdtr
 " Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 
 " " Others
-" Plug 'ryanoasis/vim-webdevicons'
-" Plug 'ryanoasis/nerd-fonts'
+ Plug 'ryanoasis/vim-webdevicons'
+Plug 'ryanoasis/nerd-fonts'
 
 
 " Plug 'mhinz/vim-startify'
 
-" Plug 'neovim/node-host', { 'do': 'npm install' }
-" Plug 'neovim/node-client'
+Plug 'neovim/node-host', { 'do': 'npm install' }
+Plug 'neovim/node-client'
 
 " Plug 'ricardogcolombo/mdn_nvim', { 'do': './install.sh' }
 
-" Plug 'nvie/vim-flake8'
-" Plug 'python-mode/python-mode'
-" Plug 'itchyny/calendar.vim'
+Plug 'nvie/vim-flake8'
+Plug 'python-mode/python-mode'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 
 " Plug 'ricardogcolombo/mdn',{ 'do': function('DoRemote') }
-" Plug 'rizzatti/dash.vim'
+Plug 'rizzatti/dash.vim'
 " Plug 'HendrikPetertje/vimify'
 call plug#end()

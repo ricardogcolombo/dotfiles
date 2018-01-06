@@ -1,5 +1,5 @@
 export NVIM_LISTEN_ADDRESS=/tmp/nvim nvim
-PYTHONPATH=/path/to/python-client nvim
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
@@ -7,6 +7,7 @@ export LANG=en_US.UTF-8
 export TERM="xterm-256color"
 
 export CLICOLOR=1
+
 
 # alias loadnvm=". /usr/local/opt/nvm/nvm.sh"
 powerline-daemon -q
@@ -16,11 +17,11 @@ POWERLINE_BASH_SELECT=1
 
 powerline_path=$(python -c 'import pkgutil; print pkgutil.get_loader("powerline").filename' 2>/dev/null)
 
-  if [[ "$powerline_path" != "" ]]; then
+if [[ "$powerline_path" != "" ]]; then
     source ${powerline_path}/bindings/bash/powerline.sh
-  else
+else
     # Setup your normal PS1 here.
-  fi
+fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -32,7 +33,7 @@ ulimit -n 2048
 bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
-plugins=(git svn bower brew nvm history dirpersist brew grunt tmux go golang node powerline)
+plugins=(git bower brew nvm history dirpersist brew grunt tmux go golang node powerline)
 
 # User configuration
 
