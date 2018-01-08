@@ -1,5 +1,6 @@
 export NVIM_LISTEN_ADDRESS=/tmp/nvim nvim
 
+alias tmux="TERM=screen-256color-bce tmux"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
@@ -33,14 +34,12 @@ ulimit -n 2048
 bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
-plugins=(git bower brew nvm history dirpersist brew grunt tmux go golang node powerline)
+plugins=(git brew nvm history brew grunt tmux tmuxinator zsh-autosuggestions node powerline)
 
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/neovim/bin:$PATH"
 alias vim=nvim
