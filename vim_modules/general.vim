@@ -9,8 +9,11 @@ let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
 set background=dark
 " set line number color
-colorscheme molokai
+colorscheme base16-solarized-dark
+
+let base16colorspace=256  
 set termguicolors
+let g:solarized_termcolors=256
 set guifont=Menlo\ Regular:h11
 set encoding=utf8
 set fileencoding=utf-8

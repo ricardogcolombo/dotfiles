@@ -8,7 +8,7 @@ Plug 'easymotion/vim-easymotion'
 
 " Snippets and autocomplete
 Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
-Plug 'vim-scripts/yntaxComplete'
+Plug 'vim-scripts/SyntaxComplete'
 "" latex
 " Plug 'vim-latex/vim-latex' | Plug 'lervag/vimtex'
 " Syntax
@@ -26,7 +26,8 @@ Plug 'othree/yajs.vim'
 Plug 'SirVer/ultisnips'
 Plug 'ricardogcolombo/vim-snippets'
 " Plug 'pangloss/vim-javascript'
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
 
 " Jsdoc
 " Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
@@ -96,7 +97,7 @@ Plug 'junegunn/fzf.vim'
 
 " " Others
  Plug 'ryanoasis/vim-webdevicons'
-Plug 'ryanoasis/nerd-fonts'
+" Plug 'ryanoasis/nerd-fonts'
 
 
 " Plug 'mhinz/vim-startify'
