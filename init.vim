@@ -5,6 +5,8 @@ filetype off
 source ~/dotfiles/vim_modules/pluggins.vim
 " set general vim customization
 source ~/dotfiles/vim_modules/general.vim
+" nerd tree related config 
+source ~/dotfiles/vim_modules/nerdtree.vim
 " easy motion related config
 source ~/dotfiles/vim_modules/easymotion.vim
 " fzf related config
@@ -27,8 +29,6 @@ source ~/dotfiles/vim_modules/numbers.vim
 source ~/dotfiles/vim_modules/functions.vim
 "startify configs
 source ~/dotfiles/vim_modules/startify.vim
-" config for devicons
-source ~/dotfiles/vim_modules/devicons.vim
 
 " JSX
 let g:jsx_ext_required = 0
@@ -65,12 +65,6 @@ let g:airline_theme='ric'
 " TAGBAR
 "==================
 " let g:vim_tags_auto_generate = 1
-
-"==================
-"NERDTREEE
-"==================
-nnoremap <S-o> :new<CR>:resize 10<CR>:term<CR>
-nnoremap <S-t> :NERDTreeToggle<CR>
 
 "==================
 "AUTOFORMAT

@@ -43,7 +43,7 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle' ] } | Plug 'Xuyuanp/nerdtr
 Plug 'moll/vim-node', { 'for': 'javascript' } " node support
 
 " tmux support
-" Plug 'benmills/vimux' " tmux integration for vim 
+Plug 'benmills/vimux' " tmux integration for vim 
 "Javascript Specific
 " Plug 'mxw/vim-jsx' , {'for': 'jsx'}
 " Plug 'yannickcr/eslint-plugin-react', {'for': 'jsx'}
