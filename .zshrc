@@ -25,7 +25,7 @@ powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /usr/local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-
+PATH="$PYENV_ROOT/bin:$PATH"
 powerline_path=$(python -c 'import pkgutil; print pkgutil.get_loader("powerline").filename' 2>/dev/null)
 
 if [[ "$powerline_path" != "" ]]; then

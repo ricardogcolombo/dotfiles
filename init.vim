@@ -28,7 +28,8 @@ source ~/dotfiles/vim_modules/numbers.vim
 " custom functions
 source ~/dotfiles/vim_modules/functions.vim
 "startify configs
-source ~/dotfiles/vim_modules/startify.vim
+" source ~/dotfiles/vim_modules/startify.vim
+source ~/dotfiles/vim_modules/prettier.vim
 
 " JSX
 let g:jsx_ext_required = 0
@@ -59,7 +60,10 @@ let g:move_key_modifier = 'C' "Use this to change Alt function to Ctrl
 "==================
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='ric'
+let g:airline_theme = 'base16'
+let g:solarized_termcolors=256
+
+let g:solarized_termtrans=1
 
 "==================
 " TAGBAR

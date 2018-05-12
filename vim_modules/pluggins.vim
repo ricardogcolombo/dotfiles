@@ -7,7 +7,9 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'easymotion/vim-easymotion'
 
 " Snippets and autocomplete
-Plug 'Shougo/deoplete.nvim' | Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/deoplete.nvim' 
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
+Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
 Plug 'vim-scripts/SyntaxComplete'
 "" latex
 " Plug 'vim-latex/vim-latex' | Plug 'lervag/vimtex'
@@ -17,7 +19,7 @@ Plug 'vim-scripts/SyntaxComplete'
 Plug 'sheerun/vim-polyglot'
 " Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
 " Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
-" Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
+Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 Plug 'scrooloose/syntastic'
 " Plug 'genoma/vim-less'
 Plug 'othree/yajs.vim'
@@ -43,7 +45,7 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle' ] } | Plug 'Xuyuanp/nerdtr
 Plug 'moll/vim-node', { 'for': 'javascript' } " node support
 
 " tmux support
-Plug 'benmills/vimux' " tmux integration for vim 
+" Plug 'benmills/vimux' " tmux integration for vim 
 "Javascript Specific
 " Plug 'mxw/vim-jsx' , {'for': 'jsx'}
 " Plug 'yannickcr/eslint-plugin-react', {'for': 'jsx'}
@@ -53,19 +55,20 @@ Plug 'benmills/vimux' " tmux integration for vim
 
 " Format
 Plug 'scrooloose/nerdcommenter'
-" Plug 'maksimr/vim-jsbeautify' 
+
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Plug 'crusoexia/vim-javascript-lib'
-" Plug 'Raimondi/delimitMate' "auto close parenthesis,quotes..
+Plug 'Raimondi/delimitMate' "auto close parenthesis,quotes..
 Plug 'Chiel92/vim-autoformat'
 
 " themes
 " Plug 'ricardogcolombo/rtheme'
-" Plug 'ricardogcolombo/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 " Plug 'tomasr/molokai'
 " Plug 'crusoexia/vim-monokai'
 
 " tools
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 " Plug 'mileszs/ack.vim'
 Plug 't9md/vim-choosewin' "move between windows easily
 " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -93,7 +96,7 @@ Plug 'junegunn/fzf.vim'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " " Haskell
-" Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
+Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 
 " " Others
  Plug 'ryanoasis/vim-webdevicons'
