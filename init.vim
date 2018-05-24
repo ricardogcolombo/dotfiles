@@ -28,12 +28,10 @@ source ~/dotfiles/vim_modules/numbers.vim
 " custom functions
 source ~/dotfiles/vim_modules/functions.vim
 "startify configs
-" source ~/dotfiles/vim_modules/startify.vim
 source ~/dotfiles/vim_modules/prettier.vim
 
 " JSX
 let g:jsx_ext_required = 0
-let g:syntastic_javascript_checkers = ['eslint']
 
 " Override eslint with local version where necessary.
 let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'

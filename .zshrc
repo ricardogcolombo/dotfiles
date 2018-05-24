@@ -1,22 +1,17 @@
+plugins=(git brew dirhistory brew tmux tmuxinator npm node zsh-autosuggestions)
 export ZSH=$HOME/.oh-my-zsh
 export TERM="xterm-256color"
+source $ZSH/oh-my-zsh.sh
 
 export NVIM_LISTEN_ADDRESS=/tmp/nvim nvim
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# export CLICOLOR=1
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-plugins=(git brew dirhistory brew tmux tmuxinator npm node zsh-autosuggestions)
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
-# alias g++='clang'
-# alias tmux="TERM=screen-256color-bce tmux"
-ZSH_THEME="agnoster"
 
 export NVIM_NODE_LOG_FILE=/tmp/nvim-debug.log
 
@@ -46,16 +41,12 @@ bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 
 # User configuration
-
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
 
 export PATH="$HOME/neovim/bin:$PATH"
 alias vim=nvim
 
 export PATH=$PATH:~/scripts
-export GOPATH=$HOME/Documents/goProjects
-
 
 [ -f  ~/.fzf.zsh ] && source ~/.fzf.zsh
 

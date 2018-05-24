@@ -14,7 +14,8 @@ Plug 'vim-scripts/SyntaxComplete'
 "" latex
 " Plug 'vim-latex/vim-latex' | Plug 'lervag/vimtex'
 " Syntax
-"
+Plug 'maksimr/vim-jsbeautify'
+Plug 'wookiehangover/jshint.vim'
 " Plug 'isRuslan/vim-es6', {'for': 'javascript'}
 Plug 'sheerun/vim-polyglot'
 " Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
@@ -45,7 +46,8 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle' ] } | Plug 'Xuyuanp/nerdtr
 Plug 'moll/vim-node', { 'for': 'javascript' } " node support
 
 " tmux support
-" Plug 'benmills/vimux' " tmux integration for vim 
+Plug 'benmills/vimux' " tmux integration for vim 
+"
 "Javascript Specific
 " Plug 'mxw/vim-jsx' , {'for': 'jsx'}
 " Plug 'yannickcr/eslint-plugin-react', {'for': 'jsx'}
@@ -74,24 +76,22 @@ Plug 't9md/vim-choosewin' "move between windows easily
 " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 " Plug 'sjl/gundo.vim' "tree of changes in buffer
 Plug 'tpope/vim-surround'
-" Plug 'terryma/vim-multiple-cursors' "edit multiple lines
-" " Plug 'majutsushi/tagbar'
+Plug 'terryma/vim-multiple-cursors' "edit multiple lines
+" Plug 'majutsushi/tagbar'
 " Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim' "editor Config files
-" Plug 'kshenoy/vim-signature' "show marks
 Plug 'matze/vim-move' " traslade rows with arrows
 
 " " manage sessions 
 " Plug 'tpope/vim-obsession'
 " Plug 'dhruvasagar/vim-prosession'
 
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'junegunn/fzf.vim'
+
 "vim
 " Plug 'tpope/vim-scriptease'
-" Plug 'dbakker/vim-lint'
 
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -100,10 +100,6 @@ Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 
 " " Others
  Plug 'ryanoasis/vim-webdevicons'
-" Plug 'ryanoasis/nerd-fonts'
-
-
-" Plug 'mhinz/vim-startify'
 
 Plug 'neovim/node-host', { 'do': 'npm install' }
 Plug 'neovim/node-client'
