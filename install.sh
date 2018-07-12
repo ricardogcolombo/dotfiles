@@ -12,8 +12,9 @@ brew install python
 # pip
 curl -O http://python-distribute.org/distribute_setup.py
 python distribute_setup.py
-curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
-python get-pip.py
+
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+
 
 # virtualenv
 pip install virtualenv
@@ -34,5 +35,12 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 # install nvm
 
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
+
+echo source ~/dotfiles/.tmux.conf > ~/.tmux.conf
+echo source ~/dotfiles/.zshrc > ~/.zshrc
+
+curl ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

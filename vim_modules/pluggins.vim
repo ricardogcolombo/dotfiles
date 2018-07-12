@@ -14,8 +14,8 @@ Plug 'vim-scripts/SyntaxComplete'
 "" latex
 " Plug 'vim-latex/vim-latex' | Plug 'lervag/vimtex'
 " Syntax
-Plug 'maksimr/vim-jsbeautify'
-Plug 'wookiehangover/jshint.vim'
+Plug 'maksimr/vim-jsbeautify', {'for':'javascript'}
+Plug 'wookiehangover/jshint.vim' , {'for':'javascript'}
 " Plug 'isRuslan/vim-es6', {'for': 'javascript'}
 Plug 'sheerun/vim-polyglot'
 " Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
@@ -23,7 +23,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 Plug 'scrooloose/syntastic'
 " Plug 'genoma/vim-less'
-Plug 'othree/yajs.vim'
+Plug 'othree/yajs.vim' , {'for':'javascript'}
 " Plug 'JulesWang/css.vim'
 " Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips'
@@ -103,6 +103,7 @@ Plug 'lukerandall/haskellmode-vim', { 'for': 'haskell' }
 
 Plug 'neovim/node-host', { 'do': 'npm install' }
 Plug 'neovim/node-client'
+Plug 'ricardogcolombo/mdn_nvim', {'do':'npm install'}
 
 " Plug 'ricardogcolombo/mdn_nvim', { 'do': './install.sh' }
 
