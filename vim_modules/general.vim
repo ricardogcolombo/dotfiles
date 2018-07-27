@@ -10,7 +10,6 @@ let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
 " set background=dark
 " set line number color
-colorscheme base16-solarized-dark
 
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
@@ -18,6 +17,13 @@ else
     if $TERM == 'xterm'
         set term=xterm-256color
     endif
+    if $TERM == 'truecolor'
+        colorscheme base16-solarized-dark
+    endif
+    if $TERM == 'xterm-256color'
+        colorscheme monokai
+    endif
+
 endif 
 
 let base16colorspace=256  
