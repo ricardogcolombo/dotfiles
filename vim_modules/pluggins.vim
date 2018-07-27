@@ -11,6 +11,9 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-jedi', {'for': 'python'}
 Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
 Plug 'vim-scripts/SyntaxComplete'
+Plug 'ludovicchabant/vim-gutentags'
+
+Plug 'jceb/vim-orgmode'
 "" latex
 " Plug 'vim-latex/vim-latex' | Plug 'lervag/vimtex'
 " Syntax
@@ -31,7 +34,7 @@ Plug 'ricardogcolombo/vim-snippets'
 " Plug 'pangloss/vim-javascript'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/base16-vim'
-
+Plug 'ivanov/vim-ipython'
 " Jsdoc
 " Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
 " git
