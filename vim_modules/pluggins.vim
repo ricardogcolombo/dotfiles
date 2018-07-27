@@ -67,7 +67,7 @@ Plug 'Chiel92/vim-autoformat'
 " Plug 'ricardogcolombo/rtheme'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'tomasr/molokai'
-" Plug 'crusoexia/vim-monokai'
+Plug 'crusoexia/vim-monokai'
 
 " tools
 Plug 'vim-airline/vim-airline'
