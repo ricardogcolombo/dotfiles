@@ -6,14 +6,13 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 let g:syntastic_always_populate_loc_list =1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
 let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
 if matchstr(local_eslint, "^\/\\w") == ''
@@ -44,6 +43,7 @@ endif
 " \ 'args': ['--no-color', '--format', 'compact', '--config', '~/.eslintrc.json'],
 " \ 'errorformat': '%f: line %l\, col %c\, %m'
 " \ }
-"
+
+autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
 let g:syntastic_vue_checkers = ['eslint']
 

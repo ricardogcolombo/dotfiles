@@ -1,4 +1,4 @@
-plugins=(git brew dirhistory brew tmux tmuxinator npm node zsh-autosuggestions)
+plugins=(git brew dirhistory brew tmux tmuxinator npm node)
 export ZSH=$HOME/.oh-my-zsh
 export TERM="xterm-256color"
 source $ZSH/oh-my-zsh.sh
@@ -19,7 +19,7 @@ export NVIM_NODE_LOG_FILE=/tmp/nvim-debug.log
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /usr/local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+. /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 PATH="$PYENV_ROOT/bin:$PATH"
 powerline_path=$(python -c 'import pkgutil; print pkgutil.get_loader("powerline").filename' 2>/dev/null)
 

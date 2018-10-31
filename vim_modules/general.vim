@@ -47,7 +47,6 @@ endif
 set mouse=a
 set clipboard=unnamed "clipboard issue with tmux and iterm
 set nowrap " no use swp files
-set autoindent
 
 " search
 set incsearch  "make search act like search in modern browsers

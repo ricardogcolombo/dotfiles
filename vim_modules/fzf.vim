@@ -89,7 +89,6 @@ function! s:find_git_root()
 endfunction
 
 command! ProjectFiles execute 'Files' s:find_git_root()
-
 nnoremap <silent> <leader>o :ProjectFiles<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>A :Windows<CR>

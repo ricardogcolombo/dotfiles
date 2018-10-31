@@ -5,7 +5,6 @@ call plug#begin('~/.config/nvim/plugged')
 " search
 Plug 'dyng/ctrlsf.vim'
 Plug 'easymotion/vim-easymotion'
-
 " Snippets and autocomplete
 Plug 'Shougo/deoplete.nvim' 
 Plug 'zchee/deoplete-jedi', {'for': 'python'}
@@ -18,7 +17,6 @@ Plug 'jceb/vim-orgmode'
 " Plug 'vim-latex/vim-latex' | Plug 'lervag/vimtex'
 " Syntax
 Plug 'maksimr/vim-jsbeautify', {'for':'javascript'}
-Plug 'wookiehangover/jshint.vim' , {'for':'javascript'}
 " Plug 'isRuslan/vim-es6', {'for': 'javascript'}
 Plug 'sheerun/vim-polyglot'
 " Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
