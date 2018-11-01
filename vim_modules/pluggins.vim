@@ -29,10 +29,8 @@ Plug 'othree/yajs.vim' , {'for':'javascript'}
 " Plug 'Konfekt/FastFold'
 Plug 'SirVer/ultisnips'
 Plug 'ricardogcolombo/vim-snippets'
-" Plug 'pangloss/vim-javascript'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/base16-vim'
-Plug 'ivanov/vim-ipython'
 " Jsdoc
 " Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
 " git
@@ -109,7 +107,7 @@ Plug 'ricardogcolombo/mdn_nvim', {'do':'npm install'}
 " Plug 'ricardogcolombo/mdn_nvim', { 'do': './install.sh' }
 
 Plug 'nvie/vim-flake8'
-Plug 'python-mode/python-mode'
+Plug 'python-mode/python-mode',  { 'branch': 'develop' }
 
 function! DoRemote(arg)
   UpdateRemotePlugins
