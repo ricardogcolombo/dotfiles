@@ -18,14 +18,15 @@ else
         set term=xterm-256color
     endif
     if $TERM == 'truecolor'
-        colorscheme base16-solarized-dark
+        colorscheme base16-dracula-scheme
     endif
     if $TERM == 'xterm-256color'
-        colorscheme monokai
+        colorscheme dracula
+
     endif
 
 endif 
-
+color dracula
 let base16colorspace=256  
 let g:solarized_termcolors=256
 " set termguicolors 
@@ -146,10 +147,8 @@ let g:tern_show_argument_hints='on_hold'
 
 let python_highlight_all = 1
 
-let g:spotify_token='BQAOqfxV5_Rcr3NI8gDL7_TBjy3fJ1H8YzcKZ2cRUWX9kg'
-
 " Calendar
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
-
+let g:vebugger_leader='<F8>'
 set path+=**
