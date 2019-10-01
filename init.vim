@@ -21,8 +21,6 @@ source ~/dotfiles/vim_modules/git.vim
 source ~/dotfiles/vim_modules/autocomplete.vim
 " syntastic config
 source ~/dotfiles/vim_modules/syntastic.vim
-" multicursor  
-source ~/dotfiles/vim_modules/multicursor.vim
 " relative numbers
 source ~/dotfiles/vim_modules/numbers.vim
 " custom functions
@@ -85,23 +83,11 @@ nmap  <Leader><TAB>  <Plug>(choosewin)
 
 "NERD COMMENTER SPACE AFTER COMMENT
 let NERDSpaceDelims=1
-"==================
-"AUTOCOMMAND
-"==================
-"autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-
-autocmd FileType javascript :UltiSnipsAddFiletypes javascript
-
 "return to last edit position when opening files
 autocmd BufReadPost *
             \ if line("'\'") > 0 && line("'\'") >  line("$") |
             \    exe "normal! g`\"" |
             \ endif
-
 
 "==================
 "Ack
@@ -127,11 +113,6 @@ let b:did_indent = 1
 setlocal indentexpr=GetCSSIndent()
 setlocal indentkeys=0{,0},!^F,o,O
 setlocal nosmartindent
-
-if exists("*GetCSSIndent")
-    finish
-endif
-
 
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"

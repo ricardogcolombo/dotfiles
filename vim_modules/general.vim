@@ -74,6 +74,25 @@ set cursorline
 set cursorcolumn
 set colorcolumn=80
 
+"k if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 
@@ -130,8 +149,6 @@ nmap <leader><Bs> :bp <BAR> bd #<CR>
 
 " Move to the previous buffer
 nmap <leader>= :bprevious<CR>
-
-let g:ackprg = 'ag --vimgrep'
 
 let g:jsx_ext_required = 0
 " create a tmux terminal
