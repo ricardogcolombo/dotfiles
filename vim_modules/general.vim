@@ -6,10 +6,12 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let mapleader=" "
 nnoremap ; :
 
+let g:dracula_colorterm = 0
 let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
 " set background=dark
 " set line number color
+hi LineNr ctermfg=60 ctermbg=NONE cterm=NONE guifg=#6272a4 guibg=#282a36 gui=NONE
 
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
@@ -18,15 +20,16 @@ else
         set term=xterm-256color
     endif
     if $TERM == 'truecolor'
-        colorscheme base16-dracula-scheme
+        colorscheme base16-dracula
     endif
     if $TERM == 'xterm-256color'
-        colorscheme dracula
 
     endif
 
 endif 
-color dracula
+let g:dracula_italic = 0
+colorscheme dracula
+highlight Normal ctermbg=None
 let base16colorspace=256  
 let g:solarized_termcolors=256
 " set termguicolors 

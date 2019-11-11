@@ -1,6 +1,5 @@
 set nocompatible
 filetype off
-
 " Load Plugins
 source ~/dotfiles/vim_modules/pluggins.vim
 " set general vim customization
@@ -54,9 +53,9 @@ let g:move_key_modifier = 'C' "Use this to change Alt function to Ctrl
 "==================
 " AIRLINE
 "==================
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16'
+let g:airline_theme = 'dracula'
 let g:solarized_termcolors=256
 
 let g:solarized_termtrans=1
