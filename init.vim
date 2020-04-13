@@ -12,18 +12,13 @@ source ~/dotfiles/vim_modules/easymotion.vim
 source ~/dotfiles/vim_modules/fzf.vim
 " ctrlsf related config
 source ~/dotfiles/vim_modules/ctrlsf.vim
-" neosnippets related config
-source ~/dotfiles/vim_modules/neosnippets.vim
 " git fugitive and gundo related config
 source ~/dotfiles/vim_modules/git.vim
 " deoplete config
 source ~/dotfiles/vim_modules/autocomplete.vim
-" syntastic config
-source ~/dotfiles/vim_modules/syntastic.vim
 " relative numbers
 source ~/dotfiles/vim_modules/numbers.vim
 " custom functions
-source ~/dotfiles/vim_modules/functions.vim
 "startify configs
 source ~/dotfiles/vim_modules/prettier.vim
 
@@ -51,16 +46,6 @@ let g:loaded_prosession = 0
 let g:move_key_modifier = 'C' "Use this to change Alt function to Ctrl
 
 "==================
-" AIRLINE
-"==================
-let g:airline#extensions#tabline#enabled = 0
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'dracula'
-let g:solarized_termcolors=256
-
-let g:solarized_termtrans=1
-
-"==================
 " TAGBAR
 "==================
 " let g:vim_tags_auto_generate = 1
@@ -68,20 +53,13 @@ let g:solarized_termtrans=1
 "==================
 "AUTOFORMAT
 "==================
-map <Leader>2 :Autoformat<cr>
-
-"==================
-"JSDOC
-"==================
-nmap <silent> <Leader>jd <Plug>(jsdoc)
+map <Leader>2 :Prettier<cr>
 
 "==================
 "Choose Win
 "==================
 nmap  <Leader><TAB>  <Plug>(choosewin)
 
-"NERD COMMENTER SPACE AFTER COMMENT
-let NERDSpaceDelims=1
 "return to last edit position when opening files
 autocmd BufReadPost *
             \ if line("'\'") > 0 && line("'\'") >  line("$") |
@@ -94,14 +72,6 @@ autocmd BufReadPost *
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 
-"==================
-"SNIPMATE
-"==================
-let g:snips_trigger_key = '<C-\>'
-let g:UltiSnipsSnippetsDir=plugDir.'/vim-snippets/UltiSnips'
-
-" Snippets
-
 " vim indent guides
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
@@ -113,9 +83,6 @@ setlocal indentexpr=GetCSSIndent()
 setlocal indentkeys=0{,0},!^F,o,O
 setlocal nosmartindent
 
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-e>"
 " this mapping Enter key to <C-y> to chose the current highlight item
 " and close the selection list, same as other IDEs.
 " CONFLICT with some plugins like tpope/Endwise

@@ -6,10 +6,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let mapleader=" "
 nnoremap ; :
 
-let g:dracula_colorterm = 0
 let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
-" set background=dark
 " set line number color
 hi LineNr ctermfg=60 ctermbg=NONE cterm=NONE guifg=#6272a4 guibg=#282a36 gui=NONE
 
@@ -27,11 +25,11 @@ else
     endif
 
 endif 
-let g:dracula_italic = 0
-colorscheme dracula
+
+colorscheme gruvbox
 highlight Normal ctermbg=None
 let base16colorspace=256  
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 " set termguicolors 
 set guifont=Menlo\ Regular:h11
 set encoding=utf8
@@ -120,7 +118,6 @@ let g:plugDir = g:vimDir.'/plugged'
 map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 map <silent><C-v> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-map <Leader>S :SyntasticCheck<CR>
 
 nmap <Leader>s O<Esc>
 nmap <CR> o<Esc>
@@ -136,13 +133,6 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
-
-let g:webdevicons_enable_unite = 1
-
-let g:webdevicons_enable_airline_tabline = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#enabled = 1
-let g:webdevicons_enable_ctrlp = 1
 
 " Move to the next buffer
 nmap <leader>0 :bnext<CR>
@@ -168,7 +158,7 @@ let g:tern_show_argument_hints='on_hold'
 let python_highlight_all = 1
 
 " Calendar
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-let g:vebugger_leader='<F8>'
 set path+=**
+set tags=tags
+
+let g:gutentags_file_list_command = 'rg --files'
