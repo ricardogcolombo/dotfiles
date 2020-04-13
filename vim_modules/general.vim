@@ -157,8 +157,9 @@ let g:tern_show_argument_hints='on_hold'
 
 let python_highlight_all = 1
 
-" Calendar
 set path+=**
 set tags=tags
 
 let g:gutentags_file_list_command = 'rg --files'
+set spelllang=en
+

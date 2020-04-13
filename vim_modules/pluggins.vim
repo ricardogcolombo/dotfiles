@@ -36,7 +36,8 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 " Or latest tag
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'ycm-core/YouCompleteMe'
 " Or build from source code by use yarn: https://yarnpkg.com
 " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
