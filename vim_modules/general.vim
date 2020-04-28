@@ -2,6 +2,7 @@
 "CONFIG
 "==================
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set spell spelllang=en_us
 
 let mapleader=" "
 nnoremap ; :
@@ -144,8 +145,6 @@ nmap <leader><Bs> :bp <BAR> bd #<CR>
 nmap <leader>= :bprevious<CR>
 
 let g:jsx_ext_required = 0
-" create a tmux terminal
-command OpenTerminal ! tmux split-window -v -l 10 -d \;
 " esc from term in vim
 tnoremap <ESC><ESC> <C-\><C-N>
 
@@ -160,6 +159,25 @@ let python_highlight_all = 1
 set path+=**
 set tags=tags
 
-let g:gutentags_file_list_command = 'rg --files'
 set spelllang=en
+set laststatus=2
+
+nnoremap <S-t> :Lex<CR>
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'spell','gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ 'component': {
+      \   'spell': '%{&spell?&spelllang:""}',
+      \ },
+      \ 'component_visible_condition': {
+      \   'spell': '&spell',
+      \ },
+  \ }
+
 

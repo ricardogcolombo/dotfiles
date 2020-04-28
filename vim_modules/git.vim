@@ -1,8 +1,3 @@
-"==================
-"GUNDO
-"==================
-nnoremap <F5> :GundoToggle<CR>
-
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 "==================
 " GIT

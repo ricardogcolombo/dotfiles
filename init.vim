@@ -5,7 +5,6 @@ source ~/dotfiles/vim_modules/pluggins.vim
 " set general vim customization
 source ~/dotfiles/vim_modules/general.vim
 " nerd tree related config 
-source ~/dotfiles/vim_modules/nerdtree.vim
 " easy motion related config
 source ~/dotfiles/vim_modules/easymotion.vim
 " fzf related config

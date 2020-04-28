@@ -13,7 +13,6 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " tools
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle' ] } | Plug 'Xuyuanp/nerdtree-git-plugin' " file drawer
 Plug 'tpope/vim-commentary'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Raimondi/delimitMate' "auto close parenthesis,quotes..
@@ -23,21 +22,17 @@ Plug 'editorconfig/editorconfig-vim' "editor Config files
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'leafgarland/typescript-vim'
-
 " " Others
 Plug 'neovim/node-host', { 'do': 'npm install' }
 Plug 'neovim/node-client'
-
-Plug 'nvie/vim-flake8'
 Plug 'python-mode/python-mode',  { 'branch': 'develop' }
-
+" Plug 'ycm-core/YouCompleteMe'
+Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'idanarye/vim-merginal'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vimwiki/vimwiki'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-" Or latest tag
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-Plug 'ycm-core/YouCompleteMe'
-" Or build from source code by use yarn: https://yarnpkg.com
-" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
