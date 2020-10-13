@@ -163,14 +163,25 @@ set spelllang=en
 set laststatus=2
 
 nnoremap <S-t> :Lex<CR>
+
+function! LightlineFilename()
+    let filenameonly = expand('%:t:r')
+    if filenameonly ==? "index"
+        return remove(split(expand("%:h"), "/"), -1) . "/" . expand("%:t")
+    else 
+        return expand("%:t")
+    endif
+endfunction
+
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'spell','gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'spell','gitbranch', 'readonly', 'filename1','modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
+      \   'gitbranch': 'FugitiveHead',
+      \   'filename1': 'LightlineFilename',
       \ },
       \ 'component': {
       \   'spell': '%{&spell?&spelllang:""}',
@@ -180,4 +191,11 @@ let g:lightline = {
       \ },
   \ }
 
+augroup SyntaxSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+augroup END
+
+
+let g:vimwiki_list = [{'path': '~/Google Drive/vimwiki/'}]
 

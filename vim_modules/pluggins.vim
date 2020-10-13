@@ -4,7 +4,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Make sure you use single quotes
 " Group dependencies, vim-snippets depends on ultisnips
 " search
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags', { 'commit': '31c0ead' }
 Plug 'dyng/ctrlsf.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'morhetz/gruvbox'
@@ -32,6 +32,9 @@ Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'idanarye/vim-merginal'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vimwiki/vimwiki'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
