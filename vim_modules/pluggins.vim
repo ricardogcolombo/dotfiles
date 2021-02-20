@@ -34,7 +34,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vimwiki/vimwiki'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'mileszs/ack.vim'
 Plug 'nvim-lua/telescope.nvim'
+Plug 'StanAngeloff/php.vim'
+Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
+Plug 'vim-test/vim-test'
+Plug 'rust-lang/rust.vim'
+Plug 'stephpy/vim-php-cs-fixer'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction

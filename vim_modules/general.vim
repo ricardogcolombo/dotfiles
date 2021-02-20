@@ -36,7 +36,8 @@ set guifont=Menlo\ Regular:h11
 set encoding=utf8
 set fileencoding=utf-8
 set fileencodings=utf-8
-
+set foldmethod=indent
+set nofoldenable
 set bomb
 set binary
 
@@ -90,6 +91,10 @@ set updatetime=300
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " always show signcolumns
 set signcolumn=yes
@@ -198,4 +203,6 @@ augroup END
 
 
 let g:vimwiki_list = [{'path': '~/Google Drive/vimwiki/'}]
+
+let test#strategy = "neovim"
 
