@@ -8,6 +8,7 @@ Plug 'ludovicchabant/vim-gutentags', { 'commit': '31c0ead' }
 Plug 'dyng/ctrlsf.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/everforest'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -35,12 +36,19 @@ Plug 'vimwiki/vimwiki'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'mileszs/ack.vim'
-Plug 'nvim-lua/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'StanAngeloff/php.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 Plug 'vim-test/vim-test'
+" Plug 'skanehira/docker.vim' Not supported on NVIM yet
+Plug 'axvr/org.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'stephpy/vim-php-cs-fixer'
+Plug 'skanehira/docker-compose.vim'
+Plug 'tpope/vim-markdown'
+Plug 'jceb/vim-orgmode'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'tomlion/vim-solidity'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction

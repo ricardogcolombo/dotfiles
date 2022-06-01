@@ -1,13 +1,13 @@
 "==================
 "CONFIG
 "==================
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set spell spelllang=en_us
 
 let mapleader=" "
 nnoremap ; :
 
-let g:rehash256 = 1
+" let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
 " set line number color
 hi LineNr ctermfg=60 ctermbg=NONE cterm=NONE guifg=#6272a4 guibg=#282a36 gui=NONE
@@ -22,16 +22,14 @@ else
         colorscheme base16-dracula
     endif
     if $TERM == 'xterm-256color'
-
+        colorscheme everforest
     endif
 
 endif 
 
-colorscheme gruvbox
+colorscheme everforest
 highlight Normal ctermbg=None
 let base16colorspace=256  
-"let g:solarized_termcolors=256
-" set termguicolors 
 set guifont=Menlo\ Regular:h11
 set encoding=utf8
 set fileencoding=utf-8
@@ -42,11 +40,11 @@ set bomb
 set binary
 
 syntax enable
-set t_Co=256
-if &t_Co > 2 || has("gui_running")
-    " switch syntax highlighting on, when the terminal has colors
-    syntax on
-endif
+" set t_Co=256
+" if &t_Co > 2 || has("gui_running")
+"     " switch syntax highlighting on, when the terminal has colors
+"     syntax on
+" endif
 
 set mouse=a
 set clipboard=unnamed "clipboard issue with tmux and iterm
@@ -162,7 +160,6 @@ let g:tern_show_argument_hints='on_hold'
 let python_highlight_all = 1
 
 set path+=**
-set tags=tags
 
 set spelllang=en
 set laststatus=2
@@ -205,4 +202,9 @@ augroup END
 let g:vimwiki_list = [{'path': '~/Google Drive/vimwiki/'}]
 
 let test#strategy = "neovim"
+" disable vim go GD
+let g:go_def_mapping_enabled = 0
 
+let g:gutentags_exclude_filetypes = ['gitcommit','gitconfig','gitrebase','gitsendemail','git']
+let g:gutentags_ctags_exclude = ['exclude-pat-one-*', 'exclude-pat-two-*']
+let g:gutentags_ctags_extra_args = ['--languages="c,c++"']

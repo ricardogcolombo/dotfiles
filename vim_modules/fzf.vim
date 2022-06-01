@@ -131,3 +131,10 @@ command! -nargs=+ -complete=dir AgIn call SearchWithAgInDirectory(<f-args>
 
 
 inoremap <expr> <c-x><c-k> fzf#complete('cat /usr/share/dict/words')
+
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
