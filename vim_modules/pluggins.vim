@@ -49,6 +49,8 @@ Plug 'tpope/vim-markdown'
 Plug 'jceb/vim-orgmode'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tomlion/vim-solidity'
+Plug 'hashivim/vim-terraform'
+Plug 'leafgarland/typescript-vim'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
