@@ -199,11 +199,7 @@ augroup SyntaxSettings
 augroup END
 
 
-let g:vimwiki_list = [{'path': '~/Google Drive/vimwiki/'}]
-
 let test#strategy = "neovim"
-" disable vim go GD
-let g:go_def_mapping_enabled = 0
 
 let g:gutentags_exclude_filetypes = ['gitcommit','gitconfig','gitrebase','gitsendemail','git']
 let g:gutentags_ctags_exclude = ['exclude-pat-one-*', 'exclude-pat-two-*']
