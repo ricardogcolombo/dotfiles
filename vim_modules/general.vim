@@ -208,3 +208,11 @@ let g:go_def_mapping_enabled = 0
 let g:gutentags_exclude_filetypes = ['gitcommit','gitconfig','gitrebase','gitsendemail','git']
 let g:gutentags_ctags_exclude = ['exclude-pat-one-*', 'exclude-pat-two-*']
 let g:gutentags_ctags_extra_args = ['--languages="c,c++"']
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+
+autocmd BufEnter * silent! lcd %:p:h

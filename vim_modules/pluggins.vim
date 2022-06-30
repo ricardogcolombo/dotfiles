@@ -3,16 +3,18 @@
 call plug#begin('~/.config/nvim/plugged')
 " Make sure you use single quotes
 " Group dependencies, vim-snippets depends on ultisnips
+Plug 'morhetz/gruvbox'
+Plug 'sainnhe/everforest'
+
 " search
 Plug 'ludovicchabant/vim-gutentags', { 'commit': '31c0ead' }
 Plug 'dyng/ctrlsf.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/everforest'
 
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'idanarye/vim-merginal'
 " tools
 Plug 'tpope/vim-commentary'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -27,28 +29,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'neovim/node-host', { 'do': 'npm install' }
 Plug 'neovim/node-client'
 Plug 'python-mode/python-mode',  { 'branch': 'develop' }
-" Plug 'ycm-core/YouCompleteMe'
 Plug 'itchyny/lightline.vim'
 Plug 'shinchu/lightline-gruvbox.vim'
-Plug 'idanarye/vim-merginal'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vimwiki/vimwiki'
-Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'mileszs/ack.vim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'StanAngeloff/php.vim'
-Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 Plug 'vim-test/vim-test'
-" Plug 'skanehira/docker.vim' Not supported on NVIM yet
-Plug 'axvr/org.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'stephpy/vim-php-cs-fixer'
 Plug 'skanehira/docker-compose.vim'
 Plug 'tpope/vim-markdown'
-Plug 'jceb/vim-orgmode'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'tomlion/vim-solidity'
 Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
 function! DoRemote(arg)

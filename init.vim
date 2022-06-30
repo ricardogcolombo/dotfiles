@@ -107,4 +107,7 @@ let g:docker_use_tmux = 1
 
 " this is registry auth info.
 "
+nmap  <Leader>ot  :Lex<CR>
 set background=dark
+
+set tags=tags
