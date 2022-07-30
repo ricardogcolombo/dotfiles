@@ -1,25 +1,6 @@
 set nocompatible
 filetype off
 " Load Plugins
-source ~/dotfiles/vim_modules/pluggins.vim
-" set general vim customization
-source ~/dotfiles/vim_modules/general.vim
-" nerd tree related config 
-" easy motion related config
-source ~/dotfiles/vim_modules/easymotion.vim
-" fzf related config
-source ~/dotfiles/vim_modules/fzf.vim
-" ctrlsf related config
-source ~/dotfiles/vim_modules/ctrlsf.vim
-" git fugitive and gundo related config
-source ~/dotfiles/vim_modules/git.vim
-" deoplete config
-source ~/dotfiles/vim_modules/autocomplete.vim
-" relative numbers
-source ~/dotfiles/vim_modules/numbers.vim
-" custom functions
-"startify configs
-source ~/dotfiles/vim_modules/prettier.vim
 
 " JSX
 let g:jsx_ext_required = 0
