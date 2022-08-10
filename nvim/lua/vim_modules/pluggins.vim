@@ -1,4 +1,3 @@
-" load Pluggins
 "
 call plug#begin('~/.config/nvim/plugged')
 " Make sure you use single quotes
@@ -54,3 +53,4 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 call plug#end()
+
