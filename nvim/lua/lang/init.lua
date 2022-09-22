@@ -20,6 +20,7 @@ local on_attach = function(client, bufnr)
     local opts = {noremap = true, silent = true}
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>',
@@ -102,9 +103,9 @@ local sumneko_root_path = ""
 local sumneko_binary = ""
 
 if vim.fn.has("mac") == 1 then
-    sumneko_root_path = "/Users/" .. USER .. "/.config/nvim/lua-language-server"
+    sumneko_root_path = "/Users/" .. USER .. "/tools/lua-language-server"
     sumneko_binary = "/Users/" .. USER ..
-                         "/.config/nvim/lua-language-server/bin/macOS/lua-language-server"
+                         "/tools/lua-language-server/bin/lua-language-server"
 elseif vim.fn.has("unix") == 1 then
     sumneko_root_path = "/home/" .. USER .. "/.config/nvim/lua-language-server"
     sumneko_binary = "/home/" .. USER ..

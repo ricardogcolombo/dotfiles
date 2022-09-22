@@ -90,6 +90,7 @@ else
     endif
 endif 
 
+colorscheme gruvbox
 highlight Normal ctermbg=None
 let base16colorspace=256  
 
