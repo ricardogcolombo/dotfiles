@@ -18,7 +18,7 @@ endif
 " TAGBAR
 "==================
 let g:vim_tags_auto_generate = 1
-
+set termguicolors
 "==================
 "AUTOFORMAT
 "==================
@@ -27,7 +27,7 @@ map <Leader>2 :Prettier<cr>
 "==================
 "Choose Win
 "==================
-nmap  <Leader><TAB>  <Plug>(Choosewin)
+" nmap  <Leader><TAB>  <Plug>(Choosewin)
 
 "return to last edit position when opening files
 autocmd BufReadPost *
@@ -83,14 +83,14 @@ else
         set term=xterm-256color
     endif
     if $TERM == 'truecolor'
-        colorscheme base16-dracula
+        colorscheme onedark
     endif
     if $TERM == 'xterm-256color'
-        colorscheme gruvbox
+        colorscheme onedark 
     endif
 endif 
 
-colorscheme gruvbox
+colorscheme onedark
 highlight Normal ctermbg=None
 let base16colorspace=256  
 
@@ -124,8 +124,8 @@ set showmatch "show matching for ({[ "
 set nobackup
 set noswapfile   "noswap files
 
-set tabstop=4   " size of a hard tabstop
-set shiftwidth=4    " size of an "indent"
+set tabstop=2   " size of a hard tabstop
+set shiftwidth=2    " size of an "indent"
 set softtabstop=4
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set expandtab
@@ -240,7 +240,7 @@ function! LightlineFilename()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'spell','gitbranch', 'readonly', 'filename1','modified' ] ]
@@ -269,11 +269,6 @@ let g:gutentags_exclude_filetypes = ['gitcommit','gitconfig','gitrebase','gitsen
 let g:gutentags_ctags_exclude = ['exclude-pat-one-*', 'exclude-pat-two-*']
 let g:gutentags_ctags_extra_args = ['--languages="c,c++"']
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 
 autocmd BufEnter * silent! lcd %:p:h
 
@@ -286,8 +281,3 @@ nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
 nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
 nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
-" TELESCOPE 
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>

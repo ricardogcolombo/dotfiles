@@ -8,7 +8,7 @@ let g:prettier#config#print_width = 140
 
 " number of spaces per indentation level
 " Prettier default: 2
-let g:prettier#config#tab_width = 4
+let g:prettier#config#tab_width = 2
 
 " use tabs over spaces
 " Prettier default: false
@@ -24,11 +24,11 @@ let g:prettier#config#single_quote = 'false'
 
 " print spaces between brackets
 " Prettier default: true
-let g:prettier#config#bracket_spacing = 'false'
+let g:prettier#config#bracket_spacing = 'true'
 
 " put > on the last line instead of new line
 " Prettier default: false
-let g:prettier#config#jsx_bracket_same_line = 'false'
+let g:prettier#config#jsx_bracket_same_line = 'true'
 
 " avoid|always
 " Prettier default: avoid

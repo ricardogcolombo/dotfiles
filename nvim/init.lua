@@ -1,18 +1,34 @@
 require('settings')
 require('plugins')
+
 vim.cmd('source $HOME/.config/nvim/lua/old.vim')
 vim.cmd('set background=dark')
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme onedark')
+local custom_onedark= require'lualine.themes.onedark'
 
-require("mason").setup()
-require'lspconfig'.tsserver.setup{}
-require("mason-lspconfig").setup({
-    ensure_installed = { "sumneko_lua", "rust_analyzer" },
-    automatic_installation = false,
+-- Change the background of lualine_c section for normal mode
+custom_onedark.normal.c.bg = '#112233'
+
+require('lualine').setup({
+ options = { theme  = custom_onedark }
+ })
+
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
 })
+
+require("mason-lspconfig").setup {
+    ensure_installed = { "lua_ls", "rust_analyzer", "tsserver" },
+}
 require('keymappings')
 require('telescope')
-require('lsp_lua')
+
 require('choosewin')
 require("lang")
 
@@ -54,8 +70,6 @@ require'compe'.setup {
 
 vim.cmd('source $HOME/.config/nvim/lua/vim_modules/easymotion.vim')
 
-vim.cmd('source $HOME/.config/nvim/lua/vim_modules/fzf.vim')
-
 vim.cmd('source $HOME/.config/nvim/lua/vim_modules/ctrlsf.vim')
 
 vim.cmd('source $HOME/.config/nvim/lua/vim_modules/git.vim')
@@ -63,3 +77,4 @@ vim.cmd('source $HOME/.config/nvim/lua/vim_modules/git.vim')
 vim.cmd('source $HOME/.config/nvim/lua/vim_modules/autocomplete.vim')
 
 vim.cmd('source $HOME/.config/nvim/lua/vim_modules/numbers.vim')
+

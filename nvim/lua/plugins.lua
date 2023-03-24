@@ -7,6 +7,10 @@ return require('packer').startup(function(use)
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
     }
+
+    use {'sheerun/vim-polyglot'}
+    use { 'joshdick/onedark.vim' }
+
     use { 'folke/lua-dev.nvim' }
     use({
         "aserowy/tmux.nvim",
@@ -48,11 +52,18 @@ return require('packer').startup(function(use)
     use 'tjdevries/nlua.nvim'
 
     use 'nvim-lua/plenary.nvim'
+
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+        tag = '0.1.0',
+        requires = {
+            {'nvim-lua/plenary.nvim'},
+            {'nvim-lua/popup.nvim'},
+            {'nvim-treesitter/nvim-treesitter'},
+            {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+            {'nvim-telescope/telescope-symbols.nvim'},
+        }
     }
-
 
 
     use { 'dyng/ctrlsf.vim' }
@@ -60,10 +71,11 @@ return require('packer').startup(function(use)
     use 'neovim/node-client'
     use 'python-mode/python-mode'
 
-
-    use 'itchyny/lightline.vim'
-    use 'shinchu/lightline-gruvbox.vim'
-
+    use 'kyazdani42/nvim-web-devicons'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
     use 'mileszs/ack.vim'
 
@@ -99,8 +111,8 @@ return require('packer').startup(function(use)
         config = function()
             require("commented").setup({
                 codetags_keybindings = {
-                    fixme = "<leader>f",
-                    fixme_line = "<leader>ff",
+                    fixme = "<leader>fi",
+                    fixme_line = "<leader>fm",
                     todo = "<leader>t",
                     todo_line = "<leader>tt",
                     bug = "<leader>b",
@@ -117,6 +129,11 @@ return require('packer').startup(function(use)
     use 'chriskempson/base16-vim'
 
     use 'morhetz/gruvbox'
+    use {'nvim-treesitter/nvim-treesitter'}
+    use {'nvim-orgmode/orgmode', config = function()
+        require('orgmode').setup{}
+    end
+}
 end)
 
 
