@@ -19,6 +19,11 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
 end
+
+root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
+
+
+
 -- To get builtin LSP running, do something like:
 -- NOTE: This replaces the calls where you would have before done ``
 require('nlua.lsp.nvim').setup(require('lspconfig'), {

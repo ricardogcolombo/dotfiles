@@ -40,4 +40,5 @@ require'compe'.setup {
     ultisnips = true;
     luasnip = true;
   };
+
 }
