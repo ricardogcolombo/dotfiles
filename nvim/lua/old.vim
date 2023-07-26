@@ -83,14 +83,14 @@ else
         set term=xterm-256color
     endif
     if $TERM == 'truecolor'
-        colorscheme onedark
+        colorscheme nord
     endif
     if $TERM == 'xterm-256color'
-        colorscheme onedark 
+        colorscheme nord
     endif
 endif 
 
-colorscheme onedark
+colorscheme nord
 highlight Normal ctermbg=None
 let base16colorspace=256  
 
@@ -240,7 +240,7 @@ function! LightlineFilename()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'spell','gitbranch', 'readonly', 'filename1','modified' ] ]

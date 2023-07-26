@@ -7,9 +7,10 @@ return require('packer').startup(function(use)
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
     }
+    use 'shaunsingh/nord.nvim'
+    use {'sainnhe/everforest'}
 
     use {'sheerun/vim-polyglot'}
-    use { 'joshdick/onedark.vim' }
 
     use { 'folke/lua-dev.nvim' }
     use({
@@ -127,7 +128,7 @@ return require('packer').startup(function(use)
     })
 
     use 'chriskempson/base16-vim'
-
+    use 'EdenEast/nightfox.nvim'
     use 'morhetz/gruvbox'
     use {'nvim-treesitter/nvim-treesitter'}
     use {'nvim-orgmode/orgmode', config = function()

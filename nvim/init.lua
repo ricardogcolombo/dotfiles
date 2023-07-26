@@ -3,7 +3,7 @@ require('plugins')
 
 vim.cmd('source $HOME/.config/nvim/lua/old.vim')
 vim.cmd('set background=dark')
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme nordfox')
 local custom_onedark= require'lualine.themes.onedark'
 
 -- Change the background of lualine_c section for normal mode

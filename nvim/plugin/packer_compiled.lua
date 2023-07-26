@@ -85,7 +85,7 @@ _G.packer_plugins = {
     url = "https://github.com/chriskempson/base16-vim"
   },
   ["commented.nvim"] = {
-    config = { "\27LJ\2\n›\2\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\25codetags_keybindings\1\0\0\1\0\n\bbug\14<leader>b\tnote\14<leader>n\14todo_line\15<leader>tt\ttodo\14<leader>t\15fixme_line\15<leader>fm\18wont_fix_line\15<leader>ww\nfixme\15<leader>fi\rwont_fix\14<leader>w\14note_line\15<leader>nn\rbug_line\15<leader>bb\nsetup\14commented\frequire\0" },
+    config = { "\27LJ\2\n›\2\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\25codetags_keybindings\1\0\0\1\0\n\bbug\14<leader>b\14todo_line\15<leader>tt\tnote\14<leader>n\ttodo\14<leader>t\15fixme_line\15<leader>fm\18wont_fix_line\15<leader>ww\nfixme\15<leader>fi\rwont_fix\14<leader>w\14note_line\15<leader>nn\rbug_line\15<leader>bb\nsetup\14commented\frequire\0" },
     loaded = true,
     path = "/Users/ricardocolombo/.local/share/nvim/site/pack/packer/start/commented.nvim",
     url = "https://github.com/winston0410/commented.nvim"
@@ -109,6 +109,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ricardocolombo/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
     url = "https://github.com/editorconfig/editorconfig-vim"
+  },
+  everforest = {
+    loaded = true,
+    path = "/Users/ricardocolombo/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
   },
   fzf = {
     loaded = true,
@@ -150,6 +155,11 @@ _G.packer_plugins = {
     path = "/Users/ricardocolombo/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/ricardocolombo/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nlua.nvim"] = {
     loaded = true,
     path = "/Users/ricardocolombo/.local/share/nvim/site/pack/packer/start/nlua.nvim",
@@ -159,6 +169,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ricardocolombo/.local/share/nvim/site/pack/packer/start/node-client",
     url = "https://github.com/neovim/node-client"
+  },
+  ["nord.nvim"] = {
+    loaded = true,
+    path = "/Users/ricardocolombo/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nvim-compe"] = {
     loaded = true,
@@ -179,11 +194,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ricardocolombo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "/Users/ricardocolombo/.local/share/nvim/site/pack/packer/start/onedark.vim",
-    url = "https://github.com/joshdick/onedark.vim"
   },
   orgmode = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\forgmode\frequire\0" },
@@ -318,14 +328,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: commented.nvim
+time([[Config for commented.nvim]], true)
+try_loadstring("\27LJ\2\n›\2\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\25codetags_keybindings\1\0\0\1\0\n\bbug\14<leader>b\14todo_line\15<leader>tt\tnote\14<leader>n\ttodo\14<leader>t\15fixme_line\15<leader>fm\18wont_fix_line\15<leader>ww\nfixme\15<leader>fi\rwont_fix\14<leader>w\14note_line\15<leader>nn\rbug_line\15<leader>bb\nsetup\14commented\frequire\0", "config", "commented.nvim")
+time([[Config for commented.nvim]], false)
 -- Config for: tmux.nvim
 time([[Config for tmux.nvim]], true)
 try_loadstring("\27LJ\2\n¶\1\0\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2B\0\2\1K\0\1\0\vresize\1\0\1\31enable_default_keybindings\2\15navigation\1\0\1\31enable_default_keybindings\2\14copy_sync\1\0\0\1\0\1\venable\2\nsetup\ttmux\frequire\0", "config", "tmux.nvim")
 time([[Config for tmux.nvim]], false)
--- Config for: commented.nvim
-time([[Config for commented.nvim]], true)
-try_loadstring("\27LJ\2\n›\2\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\25codetags_keybindings\1\0\0\1\0\n\bbug\14<leader>b\tnote\14<leader>n\14todo_line\15<leader>tt\ttodo\14<leader>t\15fixme_line\15<leader>fm\18wont_fix_line\15<leader>ww\nfixme\15<leader>fi\rwont_fix\14<leader>w\14note_line\15<leader>nn\rbug_line\15<leader>bb\nsetup\14commented\frequire\0", "config", "commented.nvim")
-time([[Config for commented.nvim]], false)
 -- Config for: orgmode
 time([[Config for orgmode]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\forgmode\frequire\0", "config", "orgmode")
@@ -333,13 +343,6 @@ time([[Config for orgmode]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Start', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Start', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Start ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'Dispatch', function(cmdargs)
           require('packer.load')({'vim-dispatch'}, { cmd = 'Dispatch', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -360,6 +363,13 @@ pcall(vim.api.nvim_create_user_command, 'Focus', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'vim-dispatch'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('Focus ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'Start', function(cmdargs)
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Start', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-dispatch'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Start ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 
