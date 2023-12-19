@@ -1,33 +1,16 @@
 set nocompatible
 filetype off
-" Load Plugins
-
-" JSX
-let g:jsx_ext_required = 0
-
-" Override eslint with local version where necessary.
-" let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-" if matchstr(local_eslint, "^\/\\w") == ''
-"     let local_eslint = getcwd() . "/" . local_eslint
-" endif
-" if executable(local_eslint)
-"     let g:syntastic_javascript_eslint_exec = local_eslint
-" endif
 
 "==================
 " TAGBAR
 "==================
 let g:vim_tags_auto_generate = 1
 set termguicolors
+
 "==================
 "AUTOFORMAT
 "==================
 map <Leader>2 :Prettier<cr>
-
-"==================
-"Choose Win
-"==================
-" nmap  <Leader><TAB>  <Plug>(Choosewin)
 
 "return to last edit position when opening files
 autocmd BufReadPost *
@@ -48,7 +31,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 let b:did_indent = 1
 
-setlocal indentexpr=GetCSSIndent()
 setlocal indentkeys=0{,0},!^F,o,O
 setlocal nosmartindent
 
@@ -58,7 +40,7 @@ setlocal nosmartindent
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "
-nmap  <Leader>ot  :Lex<CR>
+nmap  <Leader>ot :Lex<CR>
 set background=dark
 
 set tags=tags
@@ -68,29 +50,11 @@ set tags=tags
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set spell spelllang=en_us
 
-let mapleader=" "
-nnoremap ; :
-
 " let g:rehash256 = 1
 let g:used_javascript_libs = 'underscore,backbone,angularjs,react,flux,requirejs,angularuirouter,jasmine'
 " set line number color
 hi LineNr ctermfg=60 ctermbg=NONE cterm=NONE guifg=#6272a4 guibg=#282a36 gui=NONE
 
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-else
-    if $TERM == 'xterm'
-        set term=xterm-256color
-    endif
-    if $TERM == 'truecolor'
-        colorscheme nord
-    endif
-    if $TERM == 'xterm-256color'
-        colorscheme nord
-    endif
-endif 
-
-colorscheme nord
 highlight Normal ctermbg=None
 let base16colorspace=256  
 
@@ -104,11 +68,6 @@ set bomb
 set binary
 
 syntax enable
-" set t_Co=256
-" if &t_Co > 2 || has("gui_running")
-"     " switch syntax highlighting on, when the terminal has colors
-"     syntax on
-" endif
 
 set mouse=a
 set clipboard=unnamed "clipboard issue with tmux and iterm
@@ -176,17 +135,12 @@ au BufNewFile,BufRead *.less set filetype=css
 let g:vimrcPath = $MYVIMRC
 let g:vimPath = system('realpath '.g:vimrcPath)
 let g:vimDir = fnamemodify(g:vimPath, ':h')
-let g:plugDir = g:vimDir.'/plugged'
 
 "==================
 "MAP KEYS
 "==================
 "
 "map space to / search
-map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
-map <silent><C-v> :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-
 nmap <Leader>s O<Esc>
 nmap <CR> o<Esc>
 
@@ -239,23 +193,6 @@ function! LightlineFilename()
     endif
 endfunction
 
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'spell','gitbranch', 'readonly', 'filename1','modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead',
-      \   'filename1': 'LightlineFilename',
-      \ },
-      \ 'component': {
-      \   'spell': '%{&spell?&spelllang:""}',
-      \ },
-      \ 'component_visible_condition': {
-      \   'spell': '&spell',
-      \ },
-  \ }
 
 augroup SyntaxSettings
     autocmd!
@@ -263,21 +200,5 @@ augroup SyntaxSettings
 augroup END
 
 
-" let test#strategy = "neovim"
-
-" let g:gutentags_exclude_filetypes = ['gitcommit','gitconfig','gitrebase','gitsendemail','git']
-" let g:gutentags_ctags_exclude = ['exclude-pat-one-*', 'exclude-pat-two-*']
-" let g:gutentags_ctags_extra_args = ['--languages="c,c++"']
-
-
 autocmd BufEnter * silent! lcd %:p:h
-
-" TMUX
-" let g:tmux_navigator_no_mappings = 1
-
-" nnoremap <silent> {Left-Mapping} :TmuxNavigateLeft<cr>
-" nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-" nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-" nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
