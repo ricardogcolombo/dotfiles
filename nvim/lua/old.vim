@@ -6,13 +6,13 @@ filetype off
 let g:jsx_ext_required = 0
 
 " Override eslint with local version where necessary.
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-    let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-    let g:syntastic_javascript_eslint_exec = local_eslint
-endif
+" let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+" if matchstr(local_eslint, "^\/\\w") == ''
+"     let local_eslint = getcwd() . "/" . local_eslint
+" endif
+" if executable(local_eslint)
+"     let g:syntastic_javascript_eslint_exec = local_eslint
+" endif
 
 "==================
 " TAGBAR
@@ -263,21 +263,21 @@ augroup SyntaxSettings
 augroup END
 
 
-let test#strategy = "neovim"
+" let test#strategy = "neovim"
 
-let g:gutentags_exclude_filetypes = ['gitcommit','gitconfig','gitrebase','gitsendemail','git']
-let g:gutentags_ctags_exclude = ['exclude-pat-one-*', 'exclude-pat-two-*']
-let g:gutentags_ctags_extra_args = ['--languages="c,c++"']
+" let g:gutentags_exclude_filetypes = ['gitcommit','gitconfig','gitrebase','gitsendemail','git']
+" let g:gutentags_ctags_exclude = ['exclude-pat-one-*', 'exclude-pat-two-*']
+" let g:gutentags_ctags_extra_args = ['--languages="c,c++"']
 
 
 autocmd BufEnter * silent! lcd %:p:h
 
 " TMUX
-let g:tmux_navigator_no_mappings = 1
+" let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> {Left-Mapping} :TmuxNavigateLeft<cr>
-nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+" nnoremap <silent> {Left-Mapping} :TmuxNavigateLeft<cr>
+" nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+" nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+" nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 

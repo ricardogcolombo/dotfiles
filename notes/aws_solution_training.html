@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-10-10 Tue 10:38 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AWS Solution architect training</title>
+<meta name="author" content="Ricardo Colombo&lt;ricardogcolombo@gmail.com&gt;" />
+<meta name="description" content="Notes of aws solution architect training" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<link rel="stylesheet" type="text/css" href="/Users/ricardo.colombo/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="/Users/ricardo.colombo/readtheorg/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="/Users/ricardo.colombo/readtheorg/css/readtheorg.css"/>
+<script src="/Users/ricardo.colombo/readtheorg/dist/jquery.min.js"></script>
+<script src="/Users/ricardo.colombo/readtheorg/dist/bootstrap.min.js"></script>
+<script type="text/javascript" src="/Users/ricardo.colombo/readtheorg/dist/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="/Users/ricardo.colombo/readtheorg/js/readtheorg.js"></script>
+<style type="text/css">
+pre.src:hover:before { display: none; }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">AWS Solution architect training</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org97deb18">1. AWS Technical Essentials</a>
+<ul>
+<li><a href="#orgd26589c">1.1. AWS Global Infrastructrue</a>
+<ul>
+<li><a href="#orgd387ca6">1.1.1. REGIONS</a></li>
+</ul>
+</li>
+<li><a href="#orgcca1eef">1.2. Interacting with AWS</a>
+<ul>
+<li><a href="#org95b4f9f">1.2.1. AWS Managment console</a></li>
+<li><a href="#org481352f">1.2.2. AWS CLI</a></li>
+<li><a href="#orgfa7d131">1.2.3. AWS SDK</a></li>
+</ul>
+</li>
+<li><a href="#orgec60d3a">1.3. Security and AWS Shared responsability model</a>
+<ul>
+<li><a href="#orgf4fb114">1.3.1. AWS responsability</a></li>
+<li><a href="#orgc2d12bb">1.3.2. Customer responsability</a></li>
+<li><a href="#orgd20256c">1.3.3. AWS root user.</a></li>
+<li><a href="#orga472030">1.3.4. AWS Identity and Access Management</a></li>
+</ul>
+</li>
+<li><a href="#org2b077f8">1.4. AWS Compute</a>
+<ul>
+<li><a href="#org413bb2a">1.4.1. Compute as a service.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org97deb18" class="outline-2">
+<h2 id="org97deb18"><span class="section-number-2">1.</span> AWS Technical Essentials</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgd26589c" class="outline-3">
+<h3 id="orgd26589c"><span class="section-number-3">1.1.</span> AWS Global Infrastructrue</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgd387ca6" class="outline-4">
+<h4 id="orgd387ca6"><span class="section-number-4">1.1.1.</span> REGIONS</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li>Each AWS Region is associated with a geographical name and a Region code.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org25aef3d"></a>Availability zones<br />
+<div class="outline-text-5" id="text-1-1-1-1">
+<ul class="org-ul">
+<li>AWS cluster and data centers are around the world. when you have 1 or more datacenters connected through high speed low latency links in doing replication in case one is done this is an <b>availability zone</b></li>
+<li>When you have 2 availability zones connected throught high speed and low altency links doing replication this conforms a Region</li>
+</ul>
+</div>
+</li>
+<li><a id="orgb33f34b"></a>How to choose a region??<br />
+<div class="outline-text-5" id="text-1-1-1-2">
+<ul class="org-ul">
+<li><b>Compliance</b> : Do you have a regulation requirement that your data needs to be in London? then you have to have your datacenters ina region (London)</li>
+<li><b>Latency</b>: chose the region close to your customers to give the resources faster.</li>
+<li><b>Princing</b> : One region could be more expencive than others.</li>
+<li><b>Service availability</b>: You want to make sure that the region that you are running has the services that you need.</li>
+</ul>
+</div>
+</li>
+<li><a id="org5194b62"></a>Global Edge Network<br />
+<div class="outline-text-5" id="text-1-1-1-3">
+<ul class="org-ul">
+<li>Consist in edge locations and regional edge caches.</li>
+<li>you can use services like cloud front to cache content using edge locations.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgcca1eef" class="outline-3">
+<h3 id="orgcca1eef"><span class="section-number-3">1.2.</span> Interacting with AWS</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org95b4f9f" class="outline-4">
+<h4 id="org95b4f9f"><span class="section-number-4">1.2.1.</span> AWS Managment console</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>web method you join throught the browser.</li>
+<li>No worries about scripts just point and click</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org481352f" class="outline-4">
+<h4 id="org481352f"><span class="section-number-4">1.2.2.</span> AWS CLI</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li>download and use terminal to configure aws services</li>
+<li>aws cloud shell</li>
+<li>you need the correct syntax and names to run the commands securely</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfa7d131" class="outline-4">
+<h4 id="orgfa7d131"><span class="section-number-4">1.2.3.</span> AWS SDK</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<ul class="org-ul">
+<li>created and mantain by aws</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgec60d3a" class="outline-3">
+<h3 id="orgec60d3a"><span class="section-number-3">1.3.</span> Security and AWS Shared responsability model</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>managing security and compliance is a shared responsability between AWS and you.
+desipct this shared responsability, aws created the shared responsability model.</li>
+</ul>
+
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">—————––</td>
+<td class="org-left">&#x2013;————————-————————-————————-————————-————————————————-</td>
+</tr>
+
+<tr>
+<td class="org-left">Customer</td>
+<td class="org-left">Customer Data</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">platform, applications, identity and access management</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Operating Systems Netowrn and firewall configuration</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Client -Side data, encription and data integrity,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">server side encryption, network traffic prottection</td>
+</tr>
+
+<tr>
+<td class="org-left">—————––</td>
+<td class="org-left">&#x2013;————————-————————-————————-————————-————————————————-</td>
+</tr>
+
+<tr>
+<td class="org-left">AWS</td>
+<td class="org-left">Software</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">compute, storage, database, networking</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">hardwarde aws and global infra</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Regions,AZ, Edge locations</td>
+</tr>
+
+<tr>
+<td class="org-left">—————––</td>
+<td class="org-left">&#x2013;————————-————————-————————-————————-————————————————-</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orgf4fb114" class="outline-4">
+<h4 id="orgf4fb114"><span class="section-number-4">1.3.1.</span> AWS responsability</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+AWS is responsable of the security of the cloud, protects and secures the infra that runs the service.
+</p>
+<ul class="org-ul">
+<li>Protecting and securing regions, az  and data centers down the physical security of the buildings</li>
+<li>Managing the hardware and software and networking components that run the aws services, such as physical severs</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Category</th>
+<th scope="col" class="org-left">Examples of aws services in category</th>
+<th scope="col" class="org-left">AWS Responsability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">infrastructure</td>
+<td class="org-left">Compute services, such as ecs        Space</td>
+<td class="org-left">aws manages the underlying infra and foundation services</td>
+</tr>
+
+<tr>
+<td class="org-left">services</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Abstracted services</td>
+<td class="org-left">Services that require very little managmenet</td>
+<td class="org-left">AWS operates the infra layer , operating system and platforms,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">from the customer such as Amazon Simple Storage</td>
+<td class="org-left">in addition to server side encryption and data protection</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgc2d12bb" class="outline-4">
+<h4 id="orgc2d12bb"><span class="section-number-4">1.3.2.</span> Customer responsability</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+customers are responsability for security in the cloud.
+When using any AWS service the customer is responsabilie for the properly configuring the service and their applications, in addition to ensuring that their data is secure.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Category</th>
+<th scope="col" class="org-left">Examples of aws services in category</th>
+<th scope="col" class="org-left">AWS Responsability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">infrastructure</td>
+<td class="org-left">Compute services, such as ecs        Space</td>
+<td class="org-left">Customers control the operating system and application platform</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">in addition to encrypting protecting and managing customer data</td>
+</tr>
+
+<tr>
+<td class="org-left">services</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Abstracted services</td>
+<td class="org-left">Services that require very little managmenet</td>
+<td class="org-left">Customers are responsible for customer data, encrypting the data,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">from the customer such as Amazon Simple Storage</td>
+<td class="org-left">and protecting through network firewall and backups</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+<ol class="org-ol">
+<li><a id="orgcc29827"></a>A key concept is taht customers mantain complete control of their data and are repsonsabile fpor managing the security related to their content.<br />
+<ol class="org-ol">
+<li><a id="org50d666d"></a>Choosing a region for AWS resources in accordance with data soverieingty<br /></li>
+<li><a id="org94d6c1c"></a>implementing data-protection mechanisms, such as encryption and scheduled backups<br /></li>
+<li><a id="org51711e9"></a>Using access control to limit who can access your data and AWS resources<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgd20256c" class="outline-4">
+<h4 id="orgd20256c"><span class="section-number-4">1.3.3.</span> AWS root user.</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<ul class="org-ul">
+<li>when you first create an aws account you begin twith a single sign in identity that has complete access to all aws service sand resources in the account.
+This identity is called AWS root user and is accessedy by signing with the email and pass that were used to create the account</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgd2d8c4f"></a>AWS root user credentials<br />
+<div class="outline-text-5" id="text-1-3-3-1">
+<ul class="org-ul">
+<li>the user has two sets of credentials associated with it.</li>
+<li>One set of credentials is the email address an password that were used to create the account. This allows you to access the AWS Management Console. The second set of credentials is called access keys, which allow you to make programmatic request for AWS CLI or AWS API. (Access Key ID and Secret access key)</li>
+<li>Delete your access keys to stay safe. If you dont have accesskey for your aws account root user dont create one unless you absolutely need to. if you have an access key for your aws account root user and want to delete
+<ol class="org-ol">
+<li>in aws console, navigate to your user and upeper rigt section navigation bar &gt; dropdown menu &gt; My Security Credentials.</li>
+<li>Open the access keys section</li>
+<li>under Actions, choose DELETE</li>
+<li>Choose yes</li>
+</ol></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org14675ce"></a>AWS root user best practices<br />
+<div class="outline-text-5" id="text-1-3-3-2">
+<p>
+to ensure security
+</p>
+<ul class="org-ul">
+<li>choose a strong password for the root user</li>
+<li>enable multi factor</li>
+<li>never share your user password or access key</li>
+<li>disable or delete the access key associated with the root user</li>
+<li>create an identity and access management IAM user for administrative tasks or everyday tasks</li>
+</ul>
+</div>
+</li>
+<li><a id="orgcfbb8a1"></a>MFA<br />
+<div class="outline-text-5" id="text-1-3-3-3">
+<ul class="org-ul">
+<li>Supportoed MFA devices
+<ul class="org-ul">
+<li>Virtual MFA -&gt; software  app that runs on phone or device (e.g. google authenticator, twilio)</li>
+<li>Hardware TOTP token -&gt; Hardware device (key fob, display card)</li>
+<li>Fido security keys (FIDO certified hardware security keys)</li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orga472030" class="outline-4">
+<h4 id="orga472030"><span class="section-number-4">1.3.4.</span> AWS Identity and Access Management</h4>
+<div class="outline-text-4" id="text-1-3-4">
+</div>
+<ol class="org-ol">
+<li><a id="orgc0d6927"></a>Authentication and Authorization<br />
+<div class="outline-text-5" id="text-1-3-4-1">
+<p>
+Authentication: The process when the user use a conmbination of email and password to verfify the identity. if the system assume the user is allowed to enter grants access
+Authorization: After your Authentication is the process of give user permission to access different resources and services.
+</p>
+</div>
+</li>
+
+<li><a id="orge10d403"></a>What is IAM??<br />
+<div class="outline-text-5" id="text-1-3-4-2">
+<p>
+Is a services that help you to manage access to your aws account and services in a granular way
+Global, integrated with Services, shared access without sharing your credentials, support MFA and free to use.
+</p>
+</div>
+</li>
+
+<li><a id="org1a8b60f"></a>IAM Users<br />
+<div class="outline-text-5" id="text-1-3-4-3">
+<p>
+Represents the service or person that interacts with your account.
+</p>
+</div>
+</li>
+
+<li><a id="org88b84f0"></a>IAM User Credentials<br />
+<div class="outline-text-5" id="text-1-3-4-4">
+<p>
+Set of key/value that  you give to the users to access through the AWS management console or programattic access to the aws CLI and AWS API
+</p>
+</div>
+</li>
+
+<li><a id="orge18818a"></a>IAM Groups<br />
+<div class="outline-text-5" id="text-1-3-4-5">
+<p>
+Collection of users with same permissions.
+</p>
+<ul class="org-ul">
+<li>Groups can have many users</li>
+<li>Users can belong to many groups</li>
+<li>Groups Cannot belong to groups</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgc5750ae"></a>IAM policies<br />
+<div class="outline-text-5" id="text-1-3-4-6">
+<p>
+To manage accessa and provide permisions you create IAM policies and attache them to an IAM identity
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json"> {
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Action": "*",
+        "Resource": "*"
+    }]
+}
+</pre>
+</div>
+<p>
+  "$oid": "a32eb66b562f477f37d89c4b"
+},
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org2b077f8" class="outline-3">
+<h3 id="org2b077f8"><span class="section-number-3">1.4.</span> AWS Compute</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org413bb2a" class="outline-4">
+<h4 id="org413bb2a"><span class="section-number-4">1.4.1.</span> Compute as a service.</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+Servers. can handle hptt request and send responses to clients following the client servier model.
+A client is a person or comptuer that sends a request, the server handling the requests is a computer or collection of computers, connected to the internet serving websites to interenet users.
+Servers power your applicaiton providing CPU, memory, and networking capaciuty.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org77df962"></a>Compute services<br />
+<div class="outline-text-5" id="text-1-4-1-1">
+<ul class="org-ul">
+<li>AWS app runner</li>
+<li>Batch</li>
+<li>EC2</li>
+<li>EC2 image builder</li>
+<li>Elastic beasnstalk</li>
+<li>lambda</li>
+<li>lightsawil</li>
+<li>aws outposts</li>
+<li>Serverless App regisry</li>
+<li>AWS Simspace weaver</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Ricardo Colombo&lt;ricardogcolombo@gmail.com&gt;</p>
+<p class="date">Created: 2023-10-10 Tue 10:38</p>
+</div>
+</body>
+</html>

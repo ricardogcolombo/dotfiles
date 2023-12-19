@@ -45,3 +45,7 @@ export PATH=$PATH:~/scripts
 
 # autoenv
 # source $(brew --prefix autoenv)/activate.sh
+export PATH="$HOME/bin:$PATH"
+
+export PATH="$HOME/workspace/sonar-scanner-5.0.1.3006-macosx/bin"
+
