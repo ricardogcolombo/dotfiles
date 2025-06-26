@@ -17,6 +17,15 @@ return {
 					--reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
 				},
 			},
+			gemini = {
+				endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-2.5:generateContent", -- Replace with the correct Gemini API endpoint
+				model = "gemini-flash-2.5", -- Or another Gemini model
+				extra_request_body = {
+					timeout = 30000,
+					temperature = 0.7,
+					max_completion_tokens = 8192,
+				},
+			},
 		},
 	},
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -30,7 +39,6 @@ return {
 		"echasnovski/mini.pick", -- for file_selector provider mini.pick
 		"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
 		"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-		"ibhagwan/fzf-lua", -- for file_selector provider fzf
 		"stevearc/dressing.nvim", -- for input provider dressing
 		"folke/snacks.nvim", -- for input provider snacks
 		"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
