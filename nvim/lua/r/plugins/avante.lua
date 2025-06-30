@@ -8,24 +8,22 @@ return {
 		provider = "gemini",
 		providers = {
 			openai = {
-				endpoint = "https://api.openai.com/v1",
+				endpoint = "https://api.openai.com/v1/chat/completions",
 				model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
 				extra_request_body = {
-					timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
 					temperature = 0.75,
-					max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+					max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
 					--reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
 				},
 			},
-			gemini = {
-				endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-2.5:generateContent", -- Replace with the correct Gemini API endpoint
-				model = "gemini-flash-2.5", -- Or another Gemini model
-				extra_request_body = {
-					timeout = 30000,
-					temperature = 0.7,
-					max_completion_tokens = 8192,
-				},
-			},
+			-- gemini = {
+			-- 	endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent", -- Replace with the correct Gemini API endpoint
+			-- 	model = "gemini-2.0-flash", -- Or another Gemini model
+			-- 	extra_request_body = {
+			-- 		temperature = 0.7,
+			-- 		maxOutputTokens = 8192,
+			-- 	},
+			-- },
 		},
 	},
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
@@ -42,7 +40,6 @@ return {
 		"stevearc/dressing.nvim", -- for input provider dressing
 		"folke/snacks.nvim", -- for input provider snacks
 		"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-		"zbirenbaum/copilot.lua", -- for providers='copilot'
 		{
 			-- support for image pasting
 			"HakonHarnes/img-clip.nvim",
