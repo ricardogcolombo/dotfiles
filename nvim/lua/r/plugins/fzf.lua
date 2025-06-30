@@ -45,7 +45,7 @@ return {
 
 		-- Set your keybindings here
 		vim.keymap.set("n", "<leader>f", "<cmd>FzfLua files<cr>", { desc = "Find files in project root" })
-		vim.keymap.set("n", "<leader>g", "<cmd>FzfLua live_grep_glob<cr>", { desc = "Live grep in project root" })
+		vim.keymap.set("n", "<leader>ffg", "<cmd>FzfLua live_grep_glob<cr>", { desc = "Live grep in project root" })
 		vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
 		vim.keymap.set("n", "<leader>h", "<cmd>FzfLua help_tags<cr>", { desc = "Help tags" })
 		-- Add more keybindings as needed
