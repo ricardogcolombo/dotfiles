@@ -4,13 +4,6 @@ local keymap = vim.keymap.set
 -- Set leader key (assuming space as leader)
 vim.g.mapleader = " "
 
--- Prettier formatting
-keymap("n", "<Leader>2", ":Prettier<CR>", { desc = "Format with Prettier" })
-
--- File tree
-keymap("n", "<Leader>ot", ":Lex<CR>", { desc = "Open file tree" })
-keymap("n", "<S-t>", ":Lex<CR>", { desc = "Toggle file tree" })
-
 -- Line manipulation
 keymap("n", "<Leader>s", "O<Esc>", { desc = "Insert line above" })
 keymap("n", "<CR>", "o<Esc>", { desc = "Insert line below" })
@@ -38,10 +31,9 @@ keymap("t", "<ESC><ESC>", "<C-\\><C-N>", { desc = "Escape from terminal" })
 
 -- Completion mapping for Enter key
 keymap("i", "<CR>", function()
-  if vim.fn.pumvisible() == 1 then
-    return "<C-y>"
-  else
-    return "<C-g>u<CR>"
-  end
+	if vim.fn.pumvisible() == 1 then
+		return "<C-y>"
+	else
+		return "<C-g>u<CR>"
+	end
 end, { expr = true, desc = "Smart enter for completion" })
-

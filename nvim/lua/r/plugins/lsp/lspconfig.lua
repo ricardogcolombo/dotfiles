@@ -18,15 +18,40 @@ return {
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
 
+			-- Debug function to check LSP status
+			opts.desc = "Check LSP status"
+			keymap.set("n", "<leader>ls", function()
+				local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+				if #clients == 0 then
+					print("No LSP clients attached to this buffer")
+				else
+					for _, client in ipairs(clients) do
+						print("LSP client attached: " .. client.name)
+					end
+				end
+			end, opts)
+
 			-- set keybinds
 			opts.desc = "Show LSP references"
-			keymap.set("n", "gR", "<cmd>FzfLua lsp_references<CR>", opts) -- show definition, references
+			keymap.set("n", "gR", function()
+				-- Try FzfLua first, fallback to built-in
+				local fzf_ok, _ = pcall(vim.cmd, "FzfLua lsp_references")
+				if not fzf_ok then
+					vim.lsp.buf.references()
+				end
+			end, opts) -- show definition, references
 
 			opts.desc = "Go to declaration"
 			keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
 			opts.desc = "Show LSP definitions"
-			keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<CR>", opts) -- show lsp definitions
+			keymap.set("n", "gd", function()
+				-- Try FzfLua first, fallback to built-in
+				local fzf_ok, _ = pcall(vim.cmd, "FzfLua lsp_definitions")
+				if not fzf_ok then
+					vim.lsp.buf.definition()
+				end
+			end, opts) -- show lsp definitions
 
 			opts.desc = "Show LSP implementations"
 			keymap.set("n", "gi", "<cmd>FzfLua lsp_implementations<CR>", opts) -- show lsp implementations
