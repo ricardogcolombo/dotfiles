@@ -29,14 +29,7 @@ return {
 		-- actions = {
 		--   ['ctrl-s'] = function(selected) print(selected) end,
 		-- },
-		winopts = {
-			height = 0.95,
-			width = 0.95,
-			row = 0.0,
-			col = 0.0,
-			border = "rounded",
-			preview = "hidden", -- or 'down', 'up', 'right', 'left'
-		},
+		
 	},
 	-- Lazy.nvim's 'config' function is good for setting keymaps *after* the plugin is loaded
 	config = function(_, opts)
