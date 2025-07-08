@@ -5,7 +5,7 @@ return {
 	opts = {
 		-- add any opts here
 		-- for example
-		provider = "gemini",
+		provider = "copilot",
 		providers = {
 			openai = {
 				endpoint = "https://api.openai.com/v1/chat/completions",
