@@ -29,7 +29,6 @@ return {
 		-- actions = {
 		--   ['ctrl-s'] = function(selected) print(selected) end,
 		-- },
-		
 	},
 	-- Lazy.nvim's 'config' function is good for setting keymaps *after* the plugin is loaded
 	config = function(_, opts)
@@ -39,6 +38,8 @@ return {
 		-- Set your keybindings here
 		vim.keymap.set("n", "<leader>f", "<cmd>FzfLua files<cr>", { desc = "Find files in project root" })
 		vim.keymap.set("n", "<leader>ffg", "<cmd>FzfLua live_grep_glob<cr>", { desc = "Live grep in project root" })
+		vim.keymap.set("n", "<leader>fgs", "<cmd>FzfLua git_status<cr>", { desc = "git stauts" })
+		vim.keymap.set("n", "<leader>fgg", "<cmd>FzfLua git_status<cr>", { desc = "git files" })
 		vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
 		vim.keymap.set("n", "<leader>h", "<cmd>FzfLua help_tags<cr>", { desc = "Help tags" })
 		-- Add more keybindings as needed
