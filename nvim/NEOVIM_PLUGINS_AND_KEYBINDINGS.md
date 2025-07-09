@@ -78,6 +78,7 @@ This document provides a comprehensive overview of all installed plugins and the
 - `]d` → Go to next diagnostic
 - `K` → Show documentation for item under cursor
 - `<leader>rs` → Restart LSP
+- `<leader>l` → Trigger linting for current file
 
 **Configured Language Servers:**
 - HTML (`html`)
