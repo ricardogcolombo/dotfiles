@@ -39,9 +39,18 @@ This document provides a comprehensive overview of all installed plugins and the
 **Purpose:** Fast fuzzy finder for files, buffers, and grep
 **Keybindings:**
 - `<leader>f` → Find files in project root
-- `<leader>fg` → Live grep in project root
-- `<leader>b` → Find buffers
-- `<leader>h` → Search help tags
+- `<leader>ffg` → Live grep in project root
+- `<leader>fgs` → Git status
+- `<leader>fgg` → Git files
+- `<leader>fb` → Find buffers
+- `<leader>fh` → Search help tags
+
+**LSP Integration:**
+- `gR` → Show LSP references (with fallback to native LSP)
+- `gd` → Show LSP definitions (with fallback to native LSP)
+- `gi` → Show LSP implementations
+- `gt` → Show LSP type definitions
+- `<leader>lD` → Show buffer diagnostics
 
 #### 🌲 Nvim-tree (`nvim-tree/nvim-tree.lua`)
 **Purpose:** File explorer tree
@@ -65,20 +74,17 @@ This document provides a comprehensive overview of all installed plugins and the
 #### 🧠 LSP Config (`neovim/nvim-lspconfig`)
 **Purpose:** Language Server Protocol integration
 **Keybindings:**
-- `gR` → Show LSP references (FzfLua)
 - `gD` → Go to declaration
-- `gd` → Show LSP definitions (FzfLua)
-- `gi` → Show LSP implementations (FzfLua)
-- `gt` → Show LSP type definitions (FzfLua)
 - `<leader>ca` → See available code actions
 - `<leader>rn` → Smart rename
-- `<leader>lD` → Show buffer diagnostics (FzfLua)
 - `<leader>ld` → Show line diagnostics
 - `[d` → Go to previous diagnostic
 - `]d` → Go to next diagnostic
 - `K` → Show documentation for item under cursor
 - `<leader>rs` → Restart LSP
-- `<leader>l` → Trigger linting for current file
+- `<leader>ls` → Check LSP status
+
+**Note:** LSP navigation keybindings (gR, gd, gi, gt) and buffer diagnostics (<leader>lD) are now handled by FZF-lua plugin.
 
 **Configured Language Servers:**
 - HTML (`html`)
