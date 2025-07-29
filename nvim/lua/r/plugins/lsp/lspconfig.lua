@@ -32,32 +32,8 @@ return {
 			end, opts)
 
 			-- set keybinds
-			opts.desc = "Show LSP references"
-			keymap.set("n", "gR", function()
-				-- Try FzfLua first, fallback to built-in
-				local fzf_ok, _ = pcall(vim.cmd, "FzfLua lsp_references")
-				if not fzf_ok then
-					vim.lsp.buf.references()
-				end
-			end, opts) -- show definition, references
-
 			opts.desc = "Go to declaration"
-			keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
-
-			opts.desc = "Show LSP definitions"
-			keymap.set("n", "gd", function()
-				-- Try FzfLua first, fallback to built-in
-				local fzf_ok, _ = pcall(vim.cmd, "FzfLua lsp_definitions")
-				if not fzf_ok then
-					vim.lsp.buf.definition()
-				end
-			end, opts) -- show lsp definitions
-
-			opts.desc = "Show LSP implementations"
-			keymap.set("n", "gi", "<cmd>FzfLua lsp_implementations<CR>", opts) -- show lsp implementations
-
-			opts.desc = "Show LSP type definitions"
-			keymap.set("n", "gt", "<cmd>FzfLua lsp_type_definitions<CR>", opts) -- show lsp type definitions
+					keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
 			opts.desc = "See available code actions"
 			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
@@ -65,11 +41,9 @@ return {
 			opts.desc = "Smart rename"
 			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
 
-			opts.desc = "Show buffer diagnostics"
-			keymap.set("n", "<leader>D", "<cmd>FzfLua diagnostics_document<CR>", opts) -- show  diagnostics for file
 
 			opts.desc = "Show line diagnostics"
-			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+					keymap.set("n", "<leader>ld", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
 			opts.desc = "Go to previous diagnostic"
 			keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer

@@ -6,4 +6,4 @@ require("lazy_config")
 
 -- Set colorscheme
 vim.cmd("set background=dark")
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme gruvbox")

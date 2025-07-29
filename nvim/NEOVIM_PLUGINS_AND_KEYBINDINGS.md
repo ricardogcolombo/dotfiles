@@ -72,8 +72,8 @@ This document provides a comprehensive overview of all installed plugins and the
 - `gt` → Show LSP type definitions (FzfLua)
 - `<leader>ca` → See available code actions
 - `<leader>rn` → Smart rename
-- `<leader>D` → Show buffer diagnostics (FzfLua)
-- `<leader>d` → Show line diagnostics
+- `<leader>lD` → Show buffer diagnostics (FzfLua)
+- `<leader>ld` → Show line diagnostics
 - `[d` → Go to previous diagnostic
 - `]d` → Go to next diagnostic
 - `K` → Show documentation for item under cursor
