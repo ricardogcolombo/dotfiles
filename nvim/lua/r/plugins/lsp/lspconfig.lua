@@ -6,9 +6,6 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
-		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
-
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -32,6 +29,24 @@ return {
 			end, opts)
 
 			-- set keybinds
+			opts.desc = "Show LSP references"
+			keymap.set("n", "gR", function()
+				-- Try FzfLua first, fallback to built-in
+				local fzf_ok, _ = pcall(vim.cmd, "FzfLua lsp_references")
+				if not fzf_ok then
+					vim.lsp.buf.references()
+				end
+			end, opts) -- show definition, references
+
+			opts.desc = "Show LSP definitions"
+			keymap.set("n", "gd", function()
+				-- Try FzfLua first, fallback to built-in
+				local fzf_ok, _ = pcall(vim.cmd, "FzfLua lsp_definitions")
+				if not fzf_ok then
+					vim.lsp.buf.definition()
+				end
+			end, opts) -- show lsp definitions
+
 			opts.desc = "Go to declaration"
 					keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
@@ -70,37 +85,49 @@ return {
 		end
 
 		-- configure html server
-		lspconfig["html"].setup({
+		vim.lsp.config.html = {
+			cmd = { "vscode-html-language-server", "--stdio" },
+			filetypes = { "html" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
+		}
 
 		-- configure typescript server with plugin
-		lspconfig["ts_ls"].setup({
+		vim.lsp.config.ts_ls = {
+			cmd = { "typescript-language-server", "--stdio" },
+			filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
+		}
 
-		-- configure typescript server with plugin
-		lspconfig["gopls"].setup({
+		-- configure go server
+		vim.lsp.config.gopls = {
+			cmd = { "gopls" },
+			filetypes = { "go", "gomod", "gowork", "gotmpl" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
+		}
 
 		-- configure css server
-		lspconfig["cssls"].setup({
+		vim.lsp.config.cssls = {
+			cmd = { "vscode-css-language-server", "--stdio" },
+			filetypes = { "css", "scss", "less" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
+		}
 
 		-- configure tailwindcss server
-		lspconfig["tailwindcss"].setup({
+		vim.lsp.config.tailwindcss = {
+			cmd = { "tailwindcss-language-server", "--stdio" },
+			filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
+		}
 
 		-- configure svelte server
-		lspconfig["svelte"].setup({
+		vim.lsp.config.svelte = {
+			cmd = { "svelteserver", "--stdio" },
+			filetypes = { "svelte" },
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				on_attach(client, bufnr)
@@ -114,36 +141,44 @@ return {
 					end,
 				})
 			end,
-		})
+		}
 
 		-- configure prisma orm server
-		lspconfig["prismals"].setup({
+		vim.lsp.config.prismals = {
+			cmd = { "prisma-language-server", "--stdio" },
+			filetypes = { "prisma" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
+		}
 
 		-- configure graphql language server
-		lspconfig["graphql"].setup({
+		vim.lsp.config.graphql = {
+			cmd = { "graphql-lsp", "server", "-m", "stream" },
+			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-		})
+		}
 
 		-- configure emmet language server
-		lspconfig["emmet_ls"].setup({
+		vim.lsp.config.emmet_ls = {
+			cmd = { "emmet-ls", "--stdio" },
+			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-		})
+		}
 
 		-- configure python server
-		lspconfig["pyright"].setup({
+		vim.lsp.config.pyright = {
+			cmd = { "pyright-langserver", "--stdio" },
+			filetypes = { "python" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
+		}
 
 		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
+		vim.lsp.config.lua_ls = {
+			cmd = { "lua-language-server" },
+			filetypes = { "lua" },
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
@@ -161,6 +196,6 @@ return {
 					},
 				},
 			},
-		})
+		}
 	end,
 }
