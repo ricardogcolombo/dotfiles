@@ -85,29 +85,39 @@ return {
 		end
 
 		-- configure html server
-		vim.lsp.config.html = {
+		require("lspconfig").html.setup({
 			cmd = { "vscode-html-language-server", "--stdio" },
 			filetypes = { "html" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		}
+				})
 
 		-- configure typescript server with plugin
-		vim.lsp.config.ts_ls = {
-			cmd = { "typescript-language-server", "--stdio" },
-			filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-			capabilities = capabilities,
-			on_attach = on_attach,
-		}
+			require("lspconfig").tsserver.setup({
+					cmd = { "typescript-language-server", "--stdio" },
+					filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+					capabilities = capabilities,
+					on_attach = on_attach,
+				})
+		-- 	cmd = { "typescript-language-server", "--stdio" },
+		-- 	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- }
 
 		-- configure go server
-		vim.lsp.config.gopls = {
+		require("lspconfig").gopls.setup({
 			cmd = { "gopls" },
 			filetypes = { "go", "gomod", "gowork", "gotmpl" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		}
-
+		})
+			-- cmd = { "gopls" },
+		-- 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- }
+		--
 		-- configure css server
 		vim.lsp.config.cssls = {
 			cmd = { "vscode-css-language-server", "--stdio" },

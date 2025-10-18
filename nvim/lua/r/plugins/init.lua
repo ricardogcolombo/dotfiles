@@ -4,5 +4,7 @@ return {
 	"nyoom-engineering/oxocarbon.nvim",
 	"mortepau/codicons.nvim",
 	"ellisonleao/gruvbox.nvim",
+
+	"catppuccin/nvim",
 	"junegunn/fzf.vim",
 }
