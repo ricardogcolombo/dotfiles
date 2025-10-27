@@ -1,8 +1,9 @@
 return {
-	"neovim/nvim-lspconfig",
+	-- LSP Configuration for Neovim 0.11+ using native vim.lsp.config
+	-- Note: nvim-lspconfig plugin is deprecated in Neovim 0.11+
+	"hrsh7th/cmp-nvim-lsp",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
@@ -85,38 +86,31 @@ return {
 		end
 
 		-- configure html server
-		require("lspconfig").html.setup({
+			vim.lsp.config.html = {
 			cmd = { "vscode-html-language-server", "--stdio" },
 			filetypes = { "html" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-				})
+			}
+			vim.lsp.enable('html')
 
-		-- configure typescript server with plugin
-			require("lspconfig").tsserver.setup({
+			-- configure typescript server
+			vim.lsp.config.ts_ls = {
 					cmd = { "typescript-language-server", "--stdio" },
 					filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
 					capabilities = capabilities,
 					on_attach = on_attach,
-				})
-		-- 	cmd = { "typescript-language-server", "--stdio" },
-		-- 	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- }
+			}
+			vim.lsp.enable('ts_ls')
 
 		-- configure go server
-		require("lspconfig").gopls.setup({
+			vim.lsp.config.gopls = {
 			cmd = { "gopls" },
 			filetypes = { "go", "gomod", "gowork", "gotmpl" },
 			capabilities = capabilities,
 			on_attach = on_attach,
-		})
-			-- cmd = { "gopls" },
-		-- 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- }
+			}
+			vim.lsp.enable('gopls')
 		--
 		-- configure css server
 		vim.lsp.config.cssls = {
@@ -125,6 +119,7 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		}
+			vim.lsp.enable('cssls')
 
 		-- configure tailwindcss server
 		vim.lsp.config.tailwindcss = {
@@ -133,6 +128,7 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		}
+			vim.lsp.enable('tailwindcss')
 
 		-- configure svelte server
 		vim.lsp.config.svelte = {
@@ -152,6 +148,7 @@ return {
 				})
 			end,
 		}
+			vim.lsp.enable('svelte')
 
 		-- configure prisma orm server
 		vim.lsp.config.prismals = {
@@ -160,6 +157,7 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		}
+			vim.lsp.enable('prismals')
 
 		-- configure graphql language server
 		vim.lsp.config.graphql = {
@@ -168,6 +166,7 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		}
+			vim.lsp.enable('graphql')
 
 		-- configure emmet language server
 		vim.lsp.config.emmet_ls = {
@@ -176,6 +175,7 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		}
+			vim.lsp.enable('emmet_ls')
 
 		-- configure python server
 		vim.lsp.config.pyright = {
@@ -184,6 +184,7 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		}
+			vim.lsp.enable('pyright')
 
 		-- configure lua server (with special settings)
 		vim.lsp.config.lua_ls = {
@@ -206,6 +207,7 @@ return {
 					},
 				},
 			},
-		}
+			}
+			vim.lsp.enable('lua_ls')
 	end,
 }
