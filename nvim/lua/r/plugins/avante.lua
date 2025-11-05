@@ -7,6 +7,9 @@ return {
 		-- for example
 		provider = "copilot",
 		providers = {
+			copilot = {
+				suggestion_provider = "copilot.vim",
+			},
 			openai = {
 				endpoint = "https://api.openai.com/v1/chat/completions",
 				model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
