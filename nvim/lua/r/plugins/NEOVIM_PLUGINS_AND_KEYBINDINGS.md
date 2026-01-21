@@ -236,13 +236,12 @@ This document provides a comprehensive overview of all installed plugins and the
 
 ### AI and Chat Integration
 
-#### 🤖 Avante (`yetone/avante.nvim`)
+#### 🤖 CodeCompanion (`olimorris/codecompanion.nvim`)
 
 **Purpose:** AI coding assistant
 **Configuration:**
 
-- Provider: Gemini
-- Model: Gemini Flash 2.5
+- Provider: Copilot
 - Default AI chat interface
 
 #### 💬 ChatGPT (`jackMort/ChatGPT.nvim`)

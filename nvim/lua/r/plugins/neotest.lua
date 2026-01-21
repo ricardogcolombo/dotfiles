@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"nvim-neotest/nvim-nio",
 		"nvim-neotest/neotest-jest",
+		"marilari88/neotest-vitest",
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
@@ -18,6 +19,31 @@ return {
 					cwd = function(path)
 						return vim.fn.getcwd()
 					end,
+				}),
+				require("neotest-vitest")({
+					-- Filter directories when searching for test files
+					filter_dir = function(name, rel_path, root)
+						return name ~= "node_modules"
+					end,
+					-- Use the vitest executable from node_modules if available
+					vitestCommand = "npx vitest",
+					-- Working directory detection - find the root with package.json
+					cwd = function(path)
+						-- Find the nearest package.json starting from the current file
+						local root = vim.fs.find({ "package.json" }, {
+							upward = true,
+							path = path,
+							type = "file",
+						})[1]
+						if root then
+							return vim.fs.dirname(root)
+						end
+						return vim.fn.getcwd()
+					end,
+					-- Environment variables
+					env = {
+						CI = true,
+					},
 				}),
 			},
 			-- Configure test discovery patterns
