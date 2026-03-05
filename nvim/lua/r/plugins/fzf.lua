@@ -24,6 +24,28 @@ return {
 			end,
 		},
 
+		live_grep = {
+			cwd = function()
+				local git_root = vim.fn.system("git rev-parse --show-toplevel 2>/dev/null")
+				if vim.v.shell_error == 0 then
+					return vim.fn.substitute(git_root, "\\n", "", "")
+				else
+					return vim.fn.getcwd()
+				end
+			end,
+		},
+
+		live_grep_glob = {
+			cwd = function()
+				local git_root = vim.fn.system("git rev-parse --show-toplevel 2>/dev/null")
+				if vim.v.shell_error == 0 then
+					return vim.fn.substitute(git_root, "\\n", "", "")
+				else
+					return vim.fn.getcwd()
+				end
+			end,
+		},
+
 		-- You can add other global fzf-lua options here, outside of 'files'
 		-- For example, for actions, keybindings, or different pickers:
 		-- actions = {

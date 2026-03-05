@@ -7,4 +7,6 @@ return {
 
 	"catppuccin/nvim",
 	"junegunn/fzf.vim",
+	"iamcco/markdown-preview.nvim",
+	-- Local plugin for Aether
 }

@@ -53,8 +53,8 @@ This document provides a comprehensive overview of all installed plugins and the
 - `<leader>lD` → Show buffer diagnostics
 
 #### 🌲 Nvim-tree (`nvim-tree/nvim-tree.lua`)
-**Purpose:** File explorer tree
-**Keybindings:**
+**Purpose:****Keybindings:**
+ File explorer tree
 - `<leader>ee` → Toggle file explorer
 - `<leader>ef` → Toggle file explorer on current file
 - `<leader>ec` → Collapse file explorer
@@ -166,12 +166,19 @@ This document provides a comprehensive overview of all installed plugins and the
 **Keybindings:**
 - `<leader>gc` → Git commit with message prompt
 - `<leader>gs` → Git status
-- `<leader>gp` → **Git push** (your requested keybinding)
+- `<leader>gp` → Git push
 - `<leader>gP` → Git push with upstream setting
 
 #### 📊 Gitsigns (`lewis6991/gitsigns.nvim`)
 **Purpose:** Git signs in gutter
 **Features:** Shows git changes in sign column (auto-configured)
+
+#### 🖥️ Lazygit (`kdheepak/lazygit.nvim`)
+**Purpose:** Terminal UI for git
+**Keybindings:**
+- `<leader>gg` → Open lazygit
+- `<leader>gf` → Open lazygit for current file
+- `<leader>gr` → Open lazygit at repo root
 
 ### Code Editing and Text Objects
 
@@ -203,23 +210,6 @@ This document provides a comprehensive overview of all installed plugins and the
 #### 🏷️ Tagbar (`preservim/tagbar`)
 **Purpose:** Code structure overview
 **Commands:** `:TagbarToggle`
-
-### AI and Chat Integration
-
-#### 🤖 Avante (`yetone/avante.nvim`)
-**Purpose:** AI coding assistant
-**Configuration:**
-- Provider: Gemini
-- Model: Gemini Flash 2.5
-- Default AI chat interface
-
-#### 💬 ChatGPT (`jackMort/ChatGPT.nvim`)
-**Purpose:** ChatGPT integration
-**Configuration:** Uses 1Password for API key management
-
-#### 👨‍💻 GitHub Copilot (`github/copilot.vim` + `CopilotC-Nvim/CopilotChat.nvim`)
-**Purpose:** GitHub Copilot integration
-**Features:** Code suggestions and chat interface
 
 ### GitHub Integration
 
@@ -276,12 +266,6 @@ This document provides a comprehensive overview of all installed plugins and the
 **Purpose:** Visual indentation guides
 **Features:** Shows indentation levels with colored guides
 
-### Search and Replace
-
-#### 🔍 Ack (`mileszs/ack.vim`)
-**Purpose:** Search tool integration
-**Configuration:** Uses `ag` (the_silver_searcher) if available
-
 ### Disabled/Conflict Resolution
 
 #### ❌ Prettier (`prettier/vim-prettier`)
@@ -292,7 +276,6 @@ This document provides a comprehensive overview of all installed plugins and the
 
 ### External Tools Required
 - `fd` - Fast file finder (for FZF-lua)
-- `ag` (the_silver_searcher) - For Ack plugin
 - `git` - Version control
 - Language servers (installed via `:Mason` or system package manager)
 - Formatters: prettier, stylua, isort, black
@@ -306,9 +289,8 @@ This configuration uses [lazy.nvim](https://github.com/folke/lazy.nvim) as the p
 1. **Leader Key:** The leader key is set to `<Space>` in the core configuration
 2. **LSP Integration:** All LSP commands are integrated with FZF-lua for consistent UI
 3. **Conflict Resolution:** Keybinding conflicts resolved between Fugitive and FZF-lua
-4. **AI Integration:** Multiple AI tools are configured (Avante, ChatGPT, Copilot) for different use cases
-5. **Git Workflow:** Comprehensive git integration with fugitive and gitsigns
-6. **Code Quality:** Automatic formatting and linting on save for supported file types
+4. **Git Workflow:** Comprehensive git integration with Fugitive, Gitsigns, and Lazygit
+5. **Code Quality:** Automatic formatting and linting on save for supported file types
 
 ## Customization
 
@@ -319,4 +301,3 @@ To modify keybindings or add new plugins:
 4. LSP settings: Modify `lua/r/plugins/lsp/lspconfig.lua`
 
 This configuration prioritizes performance, code quality, and developer experience with modern Neovim features.
-
