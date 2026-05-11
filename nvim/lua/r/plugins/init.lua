@@ -5,7 +5,6 @@ return {
 	"mortepau/codicons.nvim",
 	"ellisonleao/gruvbox.nvim",
 
-	"catppuccin/nvim",
 	"junegunn/fzf.vim",
 	"iamcco/markdown-preview.nvim",
 	-- Local plugin for Aether

@@ -7,4 +7,4 @@ vim.opt.guifont = "OpenCode Nerd Font:h12" -- Use OpenCode GUI font
 
 -- Set colorscheme
 vim.cmd("set background=dark")
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme kanagawa")
