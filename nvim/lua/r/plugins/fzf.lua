@@ -65,25 +65,12 @@ return {
 		vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
 		vim.keymap.set("n", "<leader>fh", "<cmd>FzfLua help_tags<cr>", { desc = "Help tags" })
 			
-			-- LSP-related FZF keybindings
-			vim.keymap.set("n", "gR", function()
-				-- Try FzfLua first, fallback to built-in
-				local fzf_ok, _ = pcall(vim.cmd, "FzfLua lsp_references")
-				if not fzf_ok then
-					vim.lsp.buf.references()
-				end
-			end, { desc = "Show LSP references" })
-			
-			vim.keymap.set("n", "gd", function()
-				-- Try FzfLua first, fallback to built-in
-				local fzf_ok, _ = pcall(vim.cmd, "FzfLua lsp_definitions")
-				if not fzf_ok then
-					vim.lsp.buf.definition()
-				end
-			end, { desc = "Show LSP definitions" })
-			
-			vim.keymap.set("n", "gi", "<cmd>FzfLua lsp_implementations<CR>", { desc = "Show LSP implementations" })
-			vim.keymap.set("n", "gt", "<cmd>FzfLua lsp_type_definitions<CR>", { desc = "Show LSP type definitions" })
-			vim.keymap.set("n", "<leader>lD", "<cmd>FzfLua diagnostics_document<CR>", { desc = "Show buffer diagnostics" })
+			-- LSP pickers live under <leader>l so we do not shadow built-in g* commands.
+			-- Neovim 0.11+ already provides grn/gra/grr/gri/grt/gO and [d/]d natively.
+			vim.keymap.set("n", "<leader>lr", "<cmd>FzfLua lsp_references<CR>", { desc = "LSP references" })
+			vim.keymap.set("n", "<leader>lg", "<cmd>FzfLua lsp_definitions<CR>", { desc = "LSP definitions" })
+			vim.keymap.set("n", "<leader>li", "<cmd>FzfLua lsp_implementations<CR>", { desc = "LSP implementations" })
+			vim.keymap.set("n", "<leader>lt", "<cmd>FzfLua lsp_type_definitions<CR>", { desc = "LSP type definitions" })
+			vim.keymap.set("n", "<leader>lD", "<cmd>FzfLua diagnostics_document<CR>", { desc = "Buffer diagnostics" })
 	end,
 }

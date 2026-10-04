@@ -12,8 +12,6 @@ return {
 			use_icons = true,
 			file_panel = {
 				listing_style = "tree",
-				position = "left",
-				width = 35,
 			},
 			view = {
 				default = { layout = "diff2_horizontal" },

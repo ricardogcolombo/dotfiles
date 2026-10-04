@@ -29,11 +29,4 @@ keymap("n", "<leader><BS>", ":bp <BAR> bd #<CR>", { desc = "Delete buffer and mo
 -- Terminal escape
 keymap("t", "<ESC><ESC>", "<C-\\><C-N>", { desc = "Escape from terminal" })
 
--- Completion mapping for Enter key
-keymap("i", "<CR>", function()
-	if vim.fn.pumvisible() == 1 then
-		return "<C-y>"
-	else
-		return "<C-g>u<CR>"
-	end
-end, { expr = true, desc = "Smart enter for completion" })
+-- NOTE: Insert-mode <CR> is handled by nvim-cmp (see lua/r/plugins/nvim-cmp.lua).

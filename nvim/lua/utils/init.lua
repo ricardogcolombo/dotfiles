@@ -1,5 +1,4 @@
 local utils = {}
-vim.env.OPENAI_API_KEY = vim.fn.system("op item get 'OpenAi' --fields notesPlain"):gsub("%s+", "")
 local scopes = { o = vim.o, b = vim.bo, w = vim.wo }
 
 function utils.opt(scope, key, value)

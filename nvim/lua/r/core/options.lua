@@ -10,7 +10,9 @@ opt.encoding = "utf8"
 opt.fileencoding = "utf-8"
 opt.fileencodings = "utf-8"
 opt.bomb = true
-opt.binary = true
+
+-- NOTE: binary mode was previously enabled globally (opt.binary = true). It
+-- disables many editing features for every file, so it has been removed.
 
 -- Mouse and clipboard
 opt.mouse = "a"
@@ -29,7 +31,7 @@ opt.showmatch = true
 -- Tab settings
 opt.tabstop = 2
 opt.shiftwidth = 2
-opt.softtabstop = 4
+opt.softtabstop = 2
 opt.showtabline = 2
 opt.expandtab = true
 
@@ -57,8 +59,10 @@ opt.foldenable = false
 opt.spell = true
 opt.spelllang = "en_us"
 
--- Auto change directory
-opt.autochdir = true
+-- Working directory: previously `autochdir = true` (plus a BufEnter :lcd autocmd)
+-- changed the cwd to every file's folder. That fragments project-root detection
+-- (sessions, fzf, LSP) so it is intentionally disabled. Use :cd/:lcd manually
+-- or the `rooter`-style plugins if you want per-project cd.
 
 -- Path settings
 opt.path:append("**")

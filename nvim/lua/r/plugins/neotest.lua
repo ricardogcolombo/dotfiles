@@ -137,12 +137,12 @@ return {
 			require("neotest").run.stop()
 		end, { desc = "Stop running tests" })
 
-		-- Test navigation
-		keymap("n", "]t", function()
+		-- Test navigation (leader-prefixed: ]t/[t are built-in "next/prev tab")
+		keymap("n", "<leader>tn", function()
 			require("neotest").jump.next({ status = "failed" })
 		end, { desc = "Jump to next failed test" })
 
-		keymap("n", "[t", function()
+		keymap("n", "<leader>tp", function()
 			require("neotest").jump.prev({ status = "failed" })
 		end, { desc = "Jump to previous failed test" })
 
