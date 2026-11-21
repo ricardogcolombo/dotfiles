@@ -64,8 +64,33 @@ return {
 		vim.keymap.set("n", "<leader>fgg", "<cmd>FzfLua git_files<cr>", { desc = "git files" })
 		vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
 		vim.keymap.set("n", "<leader>fh", "<cmd>FzfLua help_tags<cr>", { desc = "Help tags" })
-			
-			-- LSP pickers live under <leader>l so we do not shadow built-in g* commands.
+
+		-- Personal docs access + search (~/personal/docs)
+		local docs_root = vim.fn.expand("~") .. "/personal/docs"
+		local function has_docs()
+			if vim.loop.fs_stat(docs_root) then
+				return true
+			end
+			vim.notify("personal_docs folder not found: " .. docs_root, vim.log.levels.WARN)
+			return false
+		end
+		vim.keymap.set("n", "<leader>df", function()
+			if has_docs() then
+				require("fzf-lua").files({ cwd = docs_root })
+			end
+		end, { desc = "[d]ocs: find files in ~/personal/docs" })
+		vim.keymap.set("n", "<leader>ds", function()
+			if has_docs() then
+				require("fzf-lua").live_grep({ cwd = docs_root })
+			end
+		end, { desc = "[d]ocs: search contents of ~/personal/docs" })
+		vim.keymap.set("n", "<leader>de", function()
+			if has_docs() then
+				require("nvim-tree.api").tree.open({ path = docs_root })
+			end
+		end, { desc = "[d]ocs: browse ~/personal/docs in nvim-tree" })
+
+		-- LSP pickers live under <leader>l so we do not shadow built-in g* commands.
 			-- Neovim 0.11+ already provides grn/gra/grr/gri/grt/gO and [d/]d natively.
 			vim.keymap.set("n", "<leader>lr", "<cmd>FzfLua lsp_references<CR>", { desc = "LSP references" })
 			vim.keymap.set("n", "<leader>lg", "<cmd>FzfLua lsp_definitions<CR>", { desc = "LSP definitions" })

@@ -324,7 +324,7 @@ This document provides a comprehensive overview of all installed plugins and the
 **Status:** Disabled
 **Reason:** Conflicts with conform.nvim formatting
 
-### 📄 Personal Docs & Markdown Review (`lua/r/plugins/docs.lua`)
+### 📄 Personal Docs & Markdown Review (`docs.lua` / `fzf.lua`)
 
 **Purpose:** Search and browse `~/personal/docs` from Neovim, and review any
 markdown file with [glow](https://github.com/charmbracelet/glow).
@@ -339,7 +339,9 @@ markdown file with [glow](https://github.com/charmbracelet/glow).
 
 **Notes:**
 
-- Docs root is hardcoded to `~` + `/personal/docs` (edit in `docs.lua`).
+- Docs root is hardcoded to `~` + `/personal/docs` (edit in `fzf.lua`).
+- The `df`/`ds`/`de` bindings are defined in `fzf.lua` (so they live with the
+  other fzf-lua bindings); the `Glow` command lives in `docs.lua`.
 - `<leader>mg` / `:Glow` only act on `markdown` filetype buffers.
 - Requires the `glow` binary: `brew install charmbracelet/tap/glow`.
 
