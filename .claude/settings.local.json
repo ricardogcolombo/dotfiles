@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/ricardocolombo/dotfiles/nvim/lua/r/plugins/ | grep -E \"\\\\.lua$\")",
+      "Bash(grep -r \"lazy\\\\|packer\" /Users/ricardocolombo/dotfiles/nvim --include=\"*.lua\" 2>/dev/null | head -20)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}

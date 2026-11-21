@@ -324,12 +324,32 @@ This document provides a comprehensive overview of all installed plugins and the
 **Status:** Disabled
 **Reason:** Conflicts with conform.nvim formatting
 
+### 📄 Personal Docs & Markdown Review (`lua/r/plugins/docs.lua`)
+
+**Purpose:** Search and browse `~/personal/docs` from Neovim, and review any
+markdown file with [glow](https://github.com/charmbracelet/glow).
+
+**Keybindings:**
+
+- `<leader>df` → Find files in `~/personal/docs` (fzf-lua)
+- `<leader>ds` → Live-grep the contents of `~/personal/docs` (fzf-lua)
+- `<leader>de` → Open `~/personal/docs` in nvim-tree file explorer
+- `<leader>mg` → Render the current markdown buffer with glow in a terminal pane
+- `:Glow` → Command alias for `<leader>mg`
+
+**Notes:**
+
+- Docs root is hardcoded to `~` + `/personal/docs` (edit in `docs.lua`).
+- `<leader>mg` / `:Glow` only act on `markdown` filetype buffers.
+- Requires the `glow` binary: `brew install charmbracelet/tap/glow`.
+
 ## Installation and Dependencies
 
 ### External Tools Required
 
 - `fd` - Fast file finder (for FZF-lua)
 - `git` - Version control
+- `glow` - Terminal markdown renderer (for `docs.lua` markdown review)
 - Language servers (installed via `:Mason` or system package manager)
 - Formatters: prettier, stylua, isort, black
 - Linters: eslint_d, pylint
