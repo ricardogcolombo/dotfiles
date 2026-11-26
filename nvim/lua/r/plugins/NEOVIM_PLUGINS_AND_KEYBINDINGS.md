@@ -288,10 +288,59 @@ This document provides a comprehensive overview of all installed plugins and the
 **Purpose:** Status line
 **Features:**
 
-- Custom color theme
-- Git branch info
+- VS Code Dark+ custom color theme
+- File path section (`lualine_c`) shows the last 3 folders + filename
 - File encoding/format
 - Lazy.nvim update notifications
+
+#### 📚 Colorscheme — VS Code Dark+ (`Mofiqul/vscode.nvim`)
+
+**Purpose:** Dark+ editor theme
+**Features:**
+
+- `colorscheme vscode` set in `init.lua`
+- Declared in `colorscheme.lua` (`style = "dark"`)
+- Install default in `lazy_config.lua`
+
+#### 💾 Persistence (`folke/persistence.nvim`)
+
+**Purpose:** Session management
+**Keybindings:**
+
+- `<leader>qs` → Restore session (cwd)
+- `<leader>qS` → Select session
+- `<leader>ql` → Restore last session
+- `<leader>qd` → Stop saving current session
+
+**Features:** Loads on `BufReadPre`, auto-saves on quit.
+
+#### 🧩 Snacks Dashboard & Terminal (`folke/snacks.nvim`)
+
+**Purpose:** Startup dashboard + terminal + glow markdown review
+**Features:**
+
+- Startup dashboard listing recent sessions (from persistence) + quick keys
+- `<leader>mg` / `:Glow` → render current markdown buffer in glow
+- Terminal/picker/input used by `opencode.nvim`
+
+#### 🔎 DAP Value Helpers (`dap.lua`)
+
+**Purpose:** Copy / log / diff inspected values during a debug session
+**Keybindings:**
+
+- `<leader>dy` → copy an evaluated value to the clipboard
+- `<leader>dY` → append an evaluated value to the current run's log
+
+**Command:** `:DapDiffRuns` — diffs the two newest run logs
+(`stdpath("state")/dap-values/run-*.txt`).
+
+#### 🔩 FZF Worktree Picker (`fzf.lua`)
+
+**Purpose:** Open/diff the current file from another git worktree
+**Keybindings:**
+
+- `<leader>fw` → pick a git worktree, open current file there in a vsplit
+  (`<C-d>` inside the picker diffs against it)
 
 #### 🔕 Noice (`folke/noice.nvim`)
 
@@ -341,7 +390,7 @@ markdown file with [glow](https://github.com/charmbracelet/glow).
 
 - Docs root is hardcoded to `~` + `/personal/docs` (edit in `fzf.lua`).
 - The `df`/`ds`/`de` bindings are defined in `fzf.lua` (so they live with the
-  other fzf-lua bindings); the `Glow` command lives in `docs.lua`.
+  other fzf-lua bindings); the `Glow` command lives in `snacks.lua`.
 - `<leader>mg` / `:Glow` only act on `markdown` filetype buffers.
 - Requires the `glow` binary: `brew install charmbracelet/tap/glow`.
 
@@ -351,7 +400,7 @@ markdown file with [glow](https://github.com/charmbracelet/glow).
 
 - `fd` - Fast file finder (for FZF-lua)
 - `git` - Version control
-- `glow` - Terminal markdown renderer (for `docs.lua` markdown review)
+- `glow` - Terminal markdown renderer (for markdown review via snacks)
 - Language servers (installed via `:Mason` or system package manager)
 - Formatters: prettier, stylua, isort, black
 - Linters: eslint_d, pylint

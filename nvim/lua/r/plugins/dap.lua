@@ -88,6 +88,91 @@ return {
 			vscode.json_decode = function(str)
 				return vim.json.decode(json.json_strip_comments(str))
 			end
+
+			-- --- DAP value: copy / log / diff helpers -------------------------
+			-- Values are written under a per-session run file located in
+			-- stdpath("state")/dap-values. Each session gets a fresh file named
+			-- from the timestamp so runs can be diffed against each other.
+			local dap = require("dap")
+
+			local values_dir = vim.fn.stdpath("state") .. "/dap-values"
+			vim.fn.mkdir(values_dir, "p")
+			local run_file = values_dir .. "/run-" .. tostring(os.time()) .. ".txt"
+
+			-- Extract an evaluated expression from the current buffer at cursor
+			-- (words / ranges are supported).
+			local function get_expr()
+				return vim.fn.input("Expression: ", vim.fn.expand("<cword>"))
+			end
+
+			local function eval_expr(name)
+				local ok, val = pcall(dap.evaluate, nil, name)
+				if ok and val and val.result ~= nil then
+					return tostring(val.result)
+				end
+				return "<nil>"
+			end
+
+			-- Copy the evaluated value of an expression to the clipboard.
+			local function copy_value()
+				local expr = get_expr()
+				if expr == "" then
+					return
+				end
+				local val = eval_expr(expr)
+				vim.fn.setreg("+", val)
+				vim.notify("dap: copied " .. expr .. " = " .. val, vim.log.levels.INFO)
+			end
+
+			-- Append an evaluated expression to this session's run log file.
+			local function log_value()
+				local expr = get_expr()
+				if expr == "" then
+					return
+				end
+				local val = eval_expr(expr)
+				local line = string.format("[%s] %s = %s\n", os.date("%H:%M:%S"), expr, val)
+				local f = io.open(run_file, "a")
+				if f then
+					f:write(line)
+					f:close()
+				end
+				vim.notify("dap: logged " .. expr .. " -> " .. run_file, vim.log.levels.INFO)
+			end
+
+			-- Diff the two most recent run logs in the dap-values directory.
+			local function dap_diff_runs()
+				local files = vim.fn.glob(values_dir .. "/run-*.txt", false, true)
+				table.sort(files, function(a, b)
+					return vim.loop.fs_stat(a).mtime.sec > vim.loop.fs_stat(b).mtime.sec
+				end)
+				if #files < 2 then
+					vim.notify("dap: need at least 2 run logs to diff", vim.log.levels.WARN)
+					return
+				end
+				local newer, older = files[1], files[2]
+				local ok, _ = pcall(function()
+					vim.cmd("vertical diffsplit " .. vim.fn.fnameescape(newer))
+					vim.cmd("diffthis")
+				end)
+				if not ok then
+					-- fallback: open both in split for manual diff
+					vim.cmd("split " .. vim.fn.fnameescape(newer))
+					vim.cmd("vsplit " .. vim.fn.fnameescape(older))
+				end
+			end
+
+			-- Fresh run file for each new debug session.
+			dap.listeners.after.event_initialized["dap_values_run_file"] = function()
+				run_file = values_dir .. "/run-" .. vim.fn.strftime("%Y%m%d-%H%M%S") .. ".txt"
+			end
+
+			-- Copy value
+			vim.keymap.set({ "n", "v" }, "<leader>dy", copy_value, { desc = "DAP: copy evaluated value" })
+			-- Log value to current run
+			vim.keymap.set({ "n", "v" }, "<leader>dY", log_value, { desc = "DAP: log evaluated value" })
+
+			vim.api.nvim_create_user_command("DapDiffRuns", dap_diff_runs, { desc = "Diff the two newest DAP run logs" })
 		end,
 	},
 

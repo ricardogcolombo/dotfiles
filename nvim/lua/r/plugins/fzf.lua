@@ -90,6 +90,50 @@ return {
 			end
 		end, { desc = "[d]ocs: browse ~/personal/docs in nvim-tree" })
 
+		-- Open the current file from another git worktree in a vsplit.
+		-- <leader>fw lists all git worktrees; choosing one opens the current
+		-- buffer's path from that worktree, and <C-d> diffs it against the
+		-- worktree copy.
+		local function pick_worktree(diff)
+			local rel = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
+			local picker = require("fzf-lua")
+			local entries = vim.fn.systemlist("git worktree list --porcelain")
+			local wts = {}
+			for _, e in ipairs(entries) do
+				if e:sub(1, 4) == "work" then
+					wts[#wts + 1] = vim.trim(e:sub(7))
+				end
+			end
+			if vim.tbl_isempty(wts) then
+				vim.notify("fzf: no git worktrees found", vim.log.levels.WARN)
+				return
+			end
+			picker.fzf_exec(wts, {
+				prompt = diff and "Diff worktree > " or "Open in worktree > ",
+				actions = {
+					["default"] = function(sel)
+						local wt = sel[1]
+						local target = vim.fn.fnamemodify(wt, ":p") .. "/" .. rel
+						if diff then
+							vim.cmd("vertical diffsplit " .. vim.fn.fnameescape(target))
+							vim.cmd("diffthis")
+						else
+							vim.cmd("vsplit " .. vim.fn.fnameescape(target))
+						end
+					end,
+					["ctrl-d"] = function(sel)
+						local wt = sel[1]
+						local target = vim.fn.fnamemodify(wt, ":p") .. "/" .. rel
+						vim.cmd("vertical diffsplit " .. vim.fn.fnameescape(target))
+						vim.cmd("diffthis")
+					end,
+				},
+			})
+		end
+		vim.keymap.set("n", "<leader>fw", function()
+			pick_worktree(false)
+		end, { desc = "[w]orktree: open current file in another worktree" })
+
 		-- LSP pickers live under <leader>l so we do not shadow built-in g* commands.
 			-- Neovim 0.11+ already provides grn/gra/grr/gri/grt/gO and [d/]d natively.
 			vim.keymap.set("n", "<leader>lr", "<cmd>FzfLua lsp_references<CR>", { desc = "LSP references" })
