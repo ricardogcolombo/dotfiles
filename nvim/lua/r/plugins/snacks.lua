@@ -22,8 +22,7 @@ return {
 			preset = "doom",
 			sections = {
 				{ section = "header" },
-				{ section = "text", icon = "", title = "Recent sessions", padding = 1, indent = 2 },
-				{ section = "recent_sessions", limit = 8, indent = 2 },
+				{ section = "recent_sessions", title = "Recent sessions", limit = 8, indent = 2 },
 				{ section = "keys", gap = 1, padding = 1 },
 				{ section = "startup" },
 			},
